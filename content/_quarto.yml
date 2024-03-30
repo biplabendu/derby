@@ -62,4 +62,7 @@ format:
     code-fold: true
     code-summary: "Show code"
 
-format-links: []      
+format-links: []
+
+resources:
+  - assets/.nojekyll
