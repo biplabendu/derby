@@ -1,0 +1,36 @@
+name: 
+author: Biplabendu Das
+output_dir: docs
+output:
+  html_document:
+    # remote_theme: "mmistakes/minimal-mistakes"
+    # lib_dir: site_libs
+    self_contained: yes
+    keep_md: no
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+navbar:
+  left:
+  - text: "Home"
+    href: index.html
+    icon: fa-home
+  - text: "Scoreboard"
+    href: statsbook/scoreboard1.html
+    icon: fa-flask
+  - text: "Jammer Stats"
+    href: statsbook/jammer1.html
+    icon: fa-flask
+  - text: "Contact"
+    href: contact.html
+    icon: fa-id-card
+  right:
+  - icon: fa-twitter
+    href: https://twitter.com/another_ant_guy
+    align: right
+  - { icon: "fa-linkedin", href: "https://www.linkedin.com/in/biplabendu/", align: right }
+
+
+# Resources:
+## icons 
+# https://fontawesome.com/search?q=ID&o=r&m=free
