@@ -44,7 +44,7 @@ website:
 
 format:
   html:
-    # theme: pulse
+    theme: pulse
     page-layout: full
     toc: true
     toc-depth: 4
