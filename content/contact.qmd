@@ -1,0 +1,10 @@
+---
+title: "Contact"
+format: 
+  html: 
+    toc: false
+---
+
+#### Biplabendu (Billu) Das
+<biplabendu.das@gmail.com> \
+<https://biplabendu.github.io/homepage/>

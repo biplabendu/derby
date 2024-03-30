@@ -1,0 +1,168 @@
+---
+title: "Scoreboard"
+reference-location: margin
+citation-location: margin
+editor_options: 
+  chunk_output_type: console
+---
+
+# Team scores over the course of the game
+
+```{r}
+library(dplyr)
+library(ggplot2)
+source(here::here("./functions/utils.R"))
+
+# Load stats workbook ----------------------------------------------------------
+files <- list.files(
+  here::here("./data/"),
+  pattern = "^STATS(.*?).xlsx$",
+  full.names = TRUE
+)
+
+# writeLines("Let's peek inside one of the files")
+
+teams <- purrr::map(
+  files,
+  function(x) {
+    c(
+      strsplit(x, "_|.xlsx")[[1]][2],
+      strsplit(x, "_|.xlsx")[[1]][4]
+    )
+  }
+)
+
+scores_firsthalf <- purrr::map(
+  files,
+  function(x) {
+    readxl::read_excel(
+      x,
+      sheet = 3,
+      range = "A3:AK41",
+      col_types = "text",
+      # skip = 2,
+      .name_repair = "minimal"
+    ) |> 
+      janitor::clean_names()
+  }
+)
+
+scores_secondhalf <- purrr::map(
+  files,
+  function(x) {
+    readxl::read_excel(
+      x,
+      sheet = 3,
+      range = "A45:AK83",
+      col_types = "text",
+      # skip = 2,
+      .name_repair = "minimal"
+    ) |> 
+      janitor::clean_names() |> 
+      rename_with(
+        .cols = c(18,37),
+        ~ c("game_total", "game_total_2")
+      )
+  }
+)
+
+
+# Tidy scores data ---------------------------------------------------------------
+
+tidy_scores_firsthalf <- purrr::map2(
+  scores_firsthalf,
+  teams,
+  function(x, y) {
+    tidy_scores(
+      data = x,
+      teams = y
+    ) |> 
+      mutate(
+        half = "first",
+        last_jam = max(jam, na.rm = TRUE)
+      )
+  }
+)
+
+tidy_scores_secondhalf <- purrr::map2(
+  scores_secondhalf,
+  teams,
+  function(x, y) {
+    tidy_scores(
+      data = x,
+      teams = y
+    ) |> 
+      mutate(
+        half = "second",
+        last_jam = NA
+      )
+  }
+)
+
+```
+
+```{r}
+# Scoreboard --------------------------------------------------------------
+
+scoreboard_plots <- purrr::map2(
+  tidy_scores_firsthalf,
+  tidy_scores_secondhalf,
+  function(x, y) {
+    p <- combine_two_halves(
+      x, y
+    ) |> 
+      filter(what == "gametotal") |> 
+      mutate(
+        value = as.integer(value)
+      ) |> 
+      ggplot(
+        aes(
+          x = jam, y = value, 
+          color = team, fill = team
+        )
+      ) +
+      geom_vline(
+        aes(xintercept = last_jam),
+        size = 1.2,
+        col = "black",
+        lty = 1
+      ) +
+      geom_line(
+        size = 1.5
+      ) +
+      geom_point(
+        size = 2,
+        shape = 21,
+        col = "black"
+      ) +
+      labs(
+        x = "Jam number",
+        y = "Total points"
+        # subtitle = "vertical line denotes half-time"
+      ) +
+      theme_minimal(25) +
+      theme(
+        legend.position = "top",
+        legend.justification = "right",
+        # legend.spacing.y = unit(1.0, 'cm'),
+        legend.text = element_text(margin = margin(t = 5)),
+        legend.title = element_blank()
+      ) +
+      guides(
+        color = guide_legend(nrow = 2),
+        fill = guide_legend(nrow = 2)
+      )
+    
+    p
+  }
+)
+
+```
+
+```{r}
+for (i in 1:length(scoreboard_plots)) {
+  scoreboard_plots[[i]] |> 
+    print()
+}
+```
+

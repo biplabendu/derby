@@ -1,0 +1,9 @@
+---
+title: "Statistics for Roller Derby"
+---
+
+---
+
+This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.
+
+For questions, please contact us [via email](contact.qmd).
