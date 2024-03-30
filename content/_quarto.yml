@@ -3,18 +3,18 @@ project:
   output-dir: docs
 
 execute:
-  freeze: auto
+  # freeze: auto
   echo: false
   warning: false
   
 website:
-  comments: 
-    hypothesis: 
-      theme: clean
+  # comments: 
+  #   hypothesis: 
+  #     theme: clean
   google-analytics: "UA-121215066-1"
   reader-mode: false
   # site-url: "http://localhost:4000"
-  site-path: "/"
+  # site-path: "/"
   page-footer: created by Biplabendu (Billu) Das.
   # top nav
   navbar:
@@ -44,7 +44,7 @@ website:
 
 format:
   html:
-    theme: pulse
+    # theme: pulse
     page-layout: full
     toc: true
     toc-depth: 4
