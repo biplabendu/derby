@@ -1,0 +1,68 @@
+project:
+  type: website
+  output-dir: ../docs
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  
+website:
+  comments: 
+    hypothesis: 
+      theme: clean
+  google-analytics: "UA-121215066-1"
+  reader-mode: false
+  # site-url: "http://localhost:4000"
+  site-path: "/"
+  page-footer: created by Biplabendu (Billu) Das.
+  # top nav
+  navbar:
+    foreground: secondary
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      ###-###-###-###-###-###-###-###-###-###-###-###-
+      - text: "Scoreboard"
+        file: statsbook/scoreboard1.qmd
+      - text: "Jammer Stats"
+        file: statsbook/jammer1.qmd
+      - text: "Contact"
+        file: contact.qmd
+
+  # # left sidebar
+  # sidebar:
+  #   search: true
+  #   style: "docked"
+  #   pinned: false
+  #   collapse-level: 2
+  #   contents:
+  #     # - file: index.qmd
+  #     #   text: "Home"
+  #     # - contact.qmd
+
+
+format:
+  html:
+    theme: 
+      light: 
+        - pulse
+      dark: 
+        - darkly
+    page-layout: full
+    toc: true
+    toc-depth: 4
+    toc-location: left
+    toc-expand: 1
+    embed-resources: true
+    # new options
+    toc_float: true
+    code-overflow: wrap
+    code-fold: true
+    code-summary: "Show code"
+
+format-links: []
+
+resources:
+  - assets/.nojekyll
