@@ -1,0 +1,17 @@
+{
+  "hash": "ce087af8b2ed2d3daaeccfd2c1d245e9",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Scoreboard\"\nreference-location: margin\ncitation-location: margin\neditor_options: \n  chunk_output_type: console\n---\n\n\n# Team scores over the course of the game\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](scoreboard1_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n\n::: {.cell-output-display}\n![](scoreboard1_files/figure-html/unnamed-chunk-3-2.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "scoreboard1_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

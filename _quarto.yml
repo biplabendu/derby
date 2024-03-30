@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: ../docs
+  output-dir: docs
 
 execute:
   freeze: auto
@@ -25,9 +25,9 @@ website:
         file: index.qmd
       ###-###-###-###-###-###-###-###-###-###-###-###-
       - text: "Scoreboard"
-        file: statsbook/scoreboard1.qmd
+        file: scoreboard1.qmd
       - text: "Jammer Stats"
-        file: statsbook/jammer1.qmd
+        file: jammer1.qmd
       - text: "Contact"
         file: contact.qmd
 
