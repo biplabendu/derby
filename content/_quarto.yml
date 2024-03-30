@@ -18,16 +18,15 @@ website:
   page-footer: created by Biplabendu (Billu) Das.
   # top nav
   navbar:
-    foreground: secondary
     search: true
     left:
       - text: "Home"
         file: index.qmd
       ###-###-###-###-###-###-###-###-###-###-###-###-
       - text: "Scoreboard"
-        file: scoreboard1.qmd
+        file: statsbook/scoreboard1.qmd
       - text: "Jammer Stats"
-        file: jammer1.qmd
+        file: statsbook/jammer1.qmd
       - text: "Contact"
         file: contact.qmd
 
@@ -45,11 +44,7 @@ website:
 
 format:
   html:
-    theme: 
-      light: 
-        - pulse
-      dark: 
-        - darkly
+    theme: pulse
     page-layout: full
     toc: true
     toc-depth: 4
@@ -63,6 +58,3 @@ format:
     code-summary: "Show code"
 
 format-links: []
-
-resources:
-  - assets/.nojekyll
