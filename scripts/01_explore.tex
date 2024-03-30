@@ -1,0 +1,502 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={01\_explore.R},
+  pdfauthor={bidas},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{01\_explore.R}
+\author{bidas}
+\date{2024-03-30}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+
+\CommentTok{\# Custom functions {-}{-}{-}}
+\NormalTok{tidy\_scores }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data, teams) \{}
+\NormalTok{  data }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{select}\NormalTok{(}
+      \SpecialCharTok{!}\FunctionTok{matches}\NormalTok{(}\StringTok{"\^{}trip\_"}\NormalTok{),}
+      \SpecialCharTok{{-}}\NormalTok{ jam\_2}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{rename}\NormalTok{(}
+      \AttributeTok{jammer =}\NormalTok{ jammers\_number,}
+      \AttributeTok{jammer\_2 =}\NormalTok{ jammers\_number\_2,}
+      \AttributeTok{jamtotal =}\NormalTok{ jam\_total,}
+      \AttributeTok{jamtotal\_2 =}\NormalTok{ jam\_total\_2,}
+      \AttributeTok{gametotal =}\NormalTok{ game\_total,}
+      \AttributeTok{gametotal\_2 =}\NormalTok{ game\_total\_2}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{    tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_longer}\NormalTok{(}
+      \AttributeTok{cols =} \SpecialCharTok{!}\NormalTok{jam,}
+      \AttributeTok{names\_to =} \StringTok{"what"}\NormalTok{,}
+      \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+\NormalTok{    tidyr}\SpecialCharTok{::}\FunctionTok{separate\_wider\_delim}\NormalTok{(}
+\NormalTok{      what,}
+      \AttributeTok{delim =} \StringTok{"\_"}\NormalTok{,}
+      \AttributeTok{names =} \FunctionTok{c}\NormalTok{(}\StringTok{"what"}\NormalTok{, }\StringTok{"team"}\NormalTok{),}
+      \AttributeTok{too\_few =} \StringTok{"align\_start"}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \CommentTok{\# glimpse()}
+    \FunctionTok{mutate}\NormalTok{(}
+      \AttributeTok{team =} \FunctionTok{if\_else}\NormalTok{(}
+        \FunctionTok{is.na}\NormalTok{(team),}
+\NormalTok{        teams[}\DecValTok{1}\NormalTok{],}
+\NormalTok{        teams[}\DecValTok{2}\NormalTok{]}
+\NormalTok{      )}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{arrange}\NormalTok{(}
+\NormalTok{      jam,}
+\NormalTok{      what,}
+\NormalTok{      team}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{group\_by}\NormalTok{(jam, what, team) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{reframe}\NormalTok{(}\AttributeTok{value =} \FunctionTok{max}\NormalTok{(value, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{mutate}\NormalTok{(}
+      \AttributeTok{jam =} \FunctionTok{as.integer}\NormalTok{(jam),}
+      \AttributeTok{team =} \FunctionTok{as.factor}\NormalTok{(team)}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(jam))}
+\NormalTok{\}}
+
+\NormalTok{combine\_two\_halves }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+  \FunctionTok{rbind}\NormalTok{(}
+\NormalTok{    x, y}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{arrange}\NormalTok{(}
+\NormalTok{      half,}
+\NormalTok{      jam,}
+\NormalTok{      what,}
+\NormalTok{      team}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{mutate}\NormalTok{(}
+      \AttributeTok{last\_jam =} \FunctionTok{max}\NormalTok{(}
+\NormalTok{        last\_jam, }
+        \AttributeTok{na.rm =} \ConstantTok{TRUE}
+\NormalTok{      )}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{rowwise}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{mutate}\NormalTok{(}
+      \AttributeTok{jam =} \FunctionTok{if\_else}\NormalTok{(}
+\NormalTok{        half }\SpecialCharTok{==} \StringTok{"first"}\NormalTok{,}
+\NormalTok{        jam,}
+\NormalTok{        jam }\SpecialCharTok{+}\NormalTok{ last\_jam}
+\NormalTok{      )}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{ungroup}\NormalTok{()}
+\NormalTok{\}}
+
+\CommentTok{\# Load stats workbook {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}
+  \StringTok{"./data/"}\NormalTok{,}
+  \AttributeTok{pattern =} \StringTok{"\^{}STATS(.*?).xlsx$"}\NormalTok{,}
+  \AttributeTok{full.names =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+\FunctionTok{writeLines}\NormalTok{(}\StringTok{"Let\textquotesingle{}s peek inside one of the files"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Let's peek inside one of the files
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{teams }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map}\NormalTok{(}
+\NormalTok{  files,}
+  \ControlFlowTok{function}\NormalTok{(x) \{}
+    \FunctionTok{c}\NormalTok{(}
+      \FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"\_|.xlsx"}\NormalTok{)[[}\DecValTok{1}\NormalTok{]][}\DecValTok{2}\NormalTok{],}
+      \FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"\_|.xlsx"}\NormalTok{)[[}\DecValTok{1}\NormalTok{]][}\DecValTok{4}\NormalTok{]}
+\NormalTok{    )}
+\NormalTok{  \}}
+\NormalTok{)}
+
+\NormalTok{scores\_firsthalf }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map}\NormalTok{(}
+\NormalTok{  files,}
+  \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{    readxl}\SpecialCharTok{::}\FunctionTok{read\_excel}\NormalTok{(}
+\NormalTok{      x,}
+      \AttributeTok{sheet =} \DecValTok{3}\NormalTok{,}
+      \AttributeTok{range =} \StringTok{"A3:AK41"}\NormalTok{,}
+      \AttributeTok{col\_types =} \StringTok{"text"}\NormalTok{,}
+      \CommentTok{\# skip = 2,}
+      \AttributeTok{.name\_repair =} \StringTok{"minimal"}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+\NormalTok{      janitor}\SpecialCharTok{::}\FunctionTok{clean\_names}\NormalTok{()}
+\NormalTok{  \}}
+\NormalTok{)}
+
+\NormalTok{scores\_secondhalf }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map}\NormalTok{(}
+\NormalTok{  files,}
+  \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{    readxl}\SpecialCharTok{::}\FunctionTok{read\_excel}\NormalTok{(}
+\NormalTok{      x,}
+      \AttributeTok{sheet =} \DecValTok{3}\NormalTok{,}
+      \AttributeTok{range =} \StringTok{"A45:AK83"}\NormalTok{,}
+      \AttributeTok{col\_types =} \StringTok{"text"}\NormalTok{,}
+      \CommentTok{\# skip = 2,}
+      \AttributeTok{.name\_repair =} \StringTok{"minimal"}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+\NormalTok{      janitor}\SpecialCharTok{::}\FunctionTok{clean\_names}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{rename\_with}\NormalTok{(}
+        \AttributeTok{.cols =} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{,}\DecValTok{37}\NormalTok{),}
+        \SpecialCharTok{\textasciitilde{}} \FunctionTok{c}\NormalTok{(}\StringTok{"game\_total"}\NormalTok{, }\StringTok{"game\_total\_2"}\NormalTok{)}
+\NormalTok{      )}
+\NormalTok{  \}}
+\NormalTok{)}
+
+
+\CommentTok{\# Tidy scores data {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\NormalTok{tidy\_scores\_firsthalf }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map2}\NormalTok{(}
+\NormalTok{  scores\_firsthalf,}
+\NormalTok{  teams,}
+  \ControlFlowTok{function}\NormalTok{(x, y) \{}
+    \FunctionTok{tidy\_scores}\NormalTok{(}
+      \AttributeTok{data =}\NormalTok{ x,}
+      \AttributeTok{teams =}\NormalTok{ y}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{mutate}\NormalTok{(}
+        \AttributeTok{half =} \StringTok{"first"}\NormalTok{,}
+        \AttributeTok{last\_jam =} \FunctionTok{max}\NormalTok{(jam, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{      )}
+\NormalTok{  \}}
+\NormalTok{)}
+
+\NormalTok{tidy\_scores\_secondhalf }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map2}\NormalTok{(}
+\NormalTok{  scores\_secondhalf,}
+\NormalTok{  teams,}
+  \ControlFlowTok{function}\NormalTok{(x, y) \{}
+    \FunctionTok{tidy\_scores}\NormalTok{(}
+      \AttributeTok{data =}\NormalTok{ x,}
+      \AttributeTok{teams =}\NormalTok{ y}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{mutate}\NormalTok{(}
+        \AttributeTok{half =} \StringTok{"second"}\NormalTok{,}
+        \AttributeTok{last\_jam =} \ConstantTok{NA}
+\NormalTok{      )}
+\NormalTok{  \}}
+\NormalTok{)}
+
+\CommentTok{\# Scoreboard {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\NormalTok{purrr}\SpecialCharTok{::}\FunctionTok{walk2}\NormalTok{(}
+\NormalTok{  tidy\_scores\_firsthalf,}
+\NormalTok{  tidy\_scores\_secondhalf,}
+  \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    p }\OtherTok{\textless{}{-}} \FunctionTok{combine\_two\_halves}\NormalTok{(}
+\NormalTok{      x, y}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{filter}\NormalTok{(what }\SpecialCharTok{==} \StringTok{"gametotal"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{glimpse}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{mutate}\NormalTok{(}
+        \AttributeTok{value =} \FunctionTok{as.integer}\NormalTok{(value)}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}} 
+      \FunctionTok{ggplot}\NormalTok{(}
+        \FunctionTok{aes}\NormalTok{(}
+          \AttributeTok{x =}\NormalTok{ jam, }\AttributeTok{y =}\NormalTok{ value, }
+          \AttributeTok{color =}\NormalTok{ team, }\AttributeTok{fill =}\NormalTok{ team}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{geom\_vline}\NormalTok{(}
+        \FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ last\_jam),}
+        \AttributeTok{size =} \FloatTok{1.2}\NormalTok{,}
+        \AttributeTok{col =} \StringTok{"black"}\NormalTok{,}
+        \AttributeTok{lty =} \DecValTok{1}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{geom\_line}\NormalTok{(}
+        \AttributeTok{size =} \FloatTok{1.5}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{(}
+        \AttributeTok{size =} \DecValTok{2}\NormalTok{,}
+        \AttributeTok{shape =} \DecValTok{21}\NormalTok{,}
+        \AttributeTok{col =} \StringTok{"black"}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{labs}\NormalTok{(}
+        \AttributeTok{x =} \StringTok{"Jam number"}\NormalTok{,}
+        \AttributeTok{y =} \StringTok{"Total points"}
+        \CommentTok{\# subtitle = "vertical line denotes half{-}time"}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{theme\_minimal}\NormalTok{(}\DecValTok{25}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{theme}\NormalTok{(}
+        \AttributeTok{legend.position =} \StringTok{"bottom"}\NormalTok{,}
+        \AttributeTok{legend.justification =} \StringTok{"right"}\NormalTok{,}
+        \CommentTok{\# legend.spacing.y = unit(1.0, \textquotesingle{}cm\textquotesingle{}),}
+        \AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{margin =} \FunctionTok{margin}\NormalTok{(}\AttributeTok{t =} \DecValTok{5}\NormalTok{)),}
+        \AttributeTok{legend.title =} \FunctionTok{element\_blank}\NormalTok{()}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{guides}\NormalTok{(}
+        \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{nrow =} \DecValTok{2}\NormalTok{),}
+        \AttributeTok{fill =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{nrow =} \DecValTok{2}\NormalTok{)}
+\NormalTok{      )}
+    
+    \FunctionTok{print}\NormalTok{(p)}
+\NormalTok{  \}}
+\NormalTok{)}
+
+\CommentTok{\# Stats for each jammer {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\NormalTok{purrr}\SpecialCharTok{::}\FunctionTok{pwalk}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}
+\NormalTok{    tidy\_scores\_firsthalf,}
+\NormalTok{    tidy\_scores\_secondhalf,}
+\NormalTok{    teams}
+\NormalTok{  ),}
+  \ControlFlowTok{function}\NormalTok{(x, y, z) \{}
+    \CommentTok{\# print(x)}
+    \CommentTok{\# print(z)}
+\NormalTok{    p }\OtherTok{\textless{}{-}} \FunctionTok{combine\_two\_halves}\NormalTok{(}
+\NormalTok{      x, y}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{filter}\NormalTok{(}
+\NormalTok{        what }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}
+          \StringTok{"jammer"}\NormalTok{,}
+          \StringTok{"jamtotal"}\NormalTok{,}
+          \StringTok{"lead"}\NormalTok{,}
+          \StringTok{"lost"}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{      tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_wider}\NormalTok{(}
+        \AttributeTok{names\_from =}\NormalTok{ what,}
+        \AttributeTok{values\_from =}\NormalTok{ value}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{select}\NormalTok{(}
+        \SpecialCharTok{{-}}\NormalTok{ last\_jam}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{relocate}\NormalTok{(}
+\NormalTok{        half,}
+        \AttributeTok{.before =} \DecValTok{1}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{mutate}\NormalTok{(}
+        \FunctionTok{across}\NormalTok{(}
+          \FunctionTok{c}\NormalTok{(lead, lost),}
+          \SpecialCharTok{\textasciitilde{}} \FunctionTok{if\_else}\NormalTok{(}
+            \FunctionTok{is.na}\NormalTok{(.),}
+            \DecValTok{0}\NormalTok{,}
+            \DecValTok{1}
+\NormalTok{          )}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{group\_by}\NormalTok{(}
+\NormalTok{        half,}
+\NormalTok{        team,}
+\NormalTok{        jammer}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{reframe}\NormalTok{(}
+        \AttributeTok{n\_jams =} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(jam)),}
+        \AttributeTok{n\_points =} \FunctionTok{sum}\NormalTok{(}\FunctionTok{as.integer}\NormalTok{(jamtotal)),}
+        \AttributeTok{n\_points\_per\_jam =} \FunctionTok{round}\NormalTok{(n\_points}\SpecialCharTok{/}\NormalTok{n\_jams, }\DecValTok{1}\NormalTok{),}
+        \AttributeTok{n\_lead =} \FunctionTok{sum}\NormalTok{(lead)}
+        \CommentTok{\# n\_lost = sum(lost)}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{      tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_longer}\NormalTok{(}
+        \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"n\_"}\NormalTok{),}
+        \AttributeTok{names\_to =} \StringTok{"what"}\NormalTok{,}
+        \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{arrange}\NormalTok{(}
+\NormalTok{        team,}
+\NormalTok{        jammer,}
+\NormalTok{        half}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \DocumentationTok{\#\# Filter measures and teams}
+      \FunctionTok{filter}\NormalTok{(}
+        \SpecialCharTok{!}\NormalTok{what }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}
+          \StringTok{"n\_points"}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \CommentTok{\# filter(}
+      \CommentTok{\#   team == "HighAltitudeRollerDerby"}
+      \CommentTok{\# ) |\textgreater{}}
+      \FunctionTok{mutate}\NormalTok{(}
+        \AttributeTok{half =} \FunctionTok{factor}\NormalTok{(half, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"second"}\NormalTok{, }\StringTok{"first"}\NormalTok{)),}
+        \AttributeTok{team =} \FunctionTok{if\_else}\NormalTok{(}
+\NormalTok{          team }\SpecialCharTok{==} \StringTok{"HighAltitudeRollerDerby"}\NormalTok{,}
+          \StringTok{"HARD"}\NormalTok{,}
+          \StringTok{"Opponent"}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{ggplot}\NormalTok{(}
+        \FunctionTok{aes}\NormalTok{(}
+          \AttributeTok{x =} \FunctionTok{as.factor}\NormalTok{(jammer),}
+          \AttributeTok{y =}\NormalTok{ value,}
+          \AttributeTok{col =}\NormalTok{ half,}
+          \AttributeTok{fill =}\NormalTok{ half}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{geom\_bar}\NormalTok{(}
+        \AttributeTok{stat =} \StringTok{"identity"}\NormalTok{,}
+        \CommentTok{\# position = "stacked",}
+        \AttributeTok{width =}\NormalTok{ .}\DecValTok{7}\NormalTok{,}
+        \AttributeTok{size =} \FloatTok{0.5}\NormalTok{,}
+        \AttributeTok{color =} \StringTok{"black"}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{labs}\NormalTok{(}
+        \AttributeTok{x =} \StringTok{"Jammer"}\NormalTok{,}
+        \AttributeTok{y =} \StringTok{"Value"}\NormalTok{,}
+        \AttributeTok{subtitle =}\NormalTok{ glue}\SpecialCharTok{::}\FunctionTok{glue}\NormalTok{(}
+          \StringTok{"\{z[1]\} vs.}\SpecialCharTok{\textbackslash{}n}\StringTok{\{z[2]\}"}
+\NormalTok{        )}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{facet\_grid}\NormalTok{(}
+\NormalTok{        team }\SpecialCharTok{\textasciitilde{}}\NormalTok{ what,}
+        \AttributeTok{scales =} \StringTok{"free"}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{n.breaks =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{theme\_minimal}\NormalTok{(}\DecValTok{15}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{theme}\NormalTok{(}
+        \AttributeTok{legend.position =} \StringTok{"top"}\NormalTok{,}
+        \AttributeTok{legend.justification =} \StringTok{"right"}\NormalTok{,}
+        \CommentTok{\# legend.spacing.y = unit(1.0, \textquotesingle{}cm\textquotesingle{}),}
+        \AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{margin =} \FunctionTok{margin}\NormalTok{(}\AttributeTok{t =} \DecValTok{5}\NormalTok{)),}
+        \AttributeTok{legend.title =} \FunctionTok{element\_blank}\NormalTok{()}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{guides}\NormalTok{(}
+        \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{nrow =} \DecValTok{1}\NormalTok{),}
+        \AttributeTok{fill =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{nrow =} \DecValTok{1}\NormalTok{)}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{scale\_fill\_manual}\NormalTok{(}
+        \AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{)}
+\NormalTok{      ) }\SpecialCharTok{+}
+      \FunctionTok{coord\_flip}\NormalTok{()}
+
+    \FunctionTok{print}\NormalTok{(p)}
+\NormalTok{  \}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
