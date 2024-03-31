@@ -1,12 +1,12 @@
 ---
-title: "Jammer Statistics"
+title: "Blocker Statistics"
 reference-location: margin
 citation-location: margin
 editor_options: 
   chunk_output_type: console
 ---
 
-# Jammer statistics over the course of the game
+# Blocker statistics over the course of the game
 
 ```{r}
 library(dplyr)
@@ -33,6 +33,11 @@ teams <- purrr::map(
   }
 )
 
+```
+
+<!-- # Read scores data -->
+
+```{r}
 scores_firsthalf <- purrr::map(
   files,
   function(x) {
@@ -47,6 +52,7 @@ scores_firsthalf <- purrr::map(
       janitor::clean_names()
   }
 )
+
 
 scores_secondhalf <- purrr::map(
   files,
@@ -100,79 +106,192 @@ tidy_scores_secondhalf <- purrr::map2(
   }
 )
 
+scores <- purrr::map2(
+  tidy_scores_firsthalf,
+  tidy_scores_secondhalf,
+  ~ combine_two_halves(.x, .y)
+)
+
+```
+
+<!-- # Read lineup data -->
+
+```{r}
+lineups_firsthalf <- purrr::map(
+  files,
+  function(x) {
+    readxl::read_excel(
+      x,
+      sheet = 5,
+      range = "A3:AV41",
+      col_types = "text",
+      # skip = 2,
+      .name_repair = "minimal"
+    ) |> 
+      janitor::clean_names()
+  }
+)
+
+
+lineups_secondhalf <- purrr::map(
+  files,
+  function(x) {
+    readxl::read_excel(
+      x,
+      sheet = 5,
+      range = "A45:AV83",
+      col_types = "text",
+      # skip = 2,
+      .name_repair = "minimal"
+    ) |> 
+      janitor::clean_names()
+  }
+)
+
+## TIDY LINEUPS DATA ----
+tidy_lineups_firsthalf <- purrr::map2(
+  lineups_firsthalf,
+  teams,
+  function(x, y) {
+    tidy_lineups(
+      data = x,
+      teams = y
+    ) |> 
+      mutate(
+        half = "first",
+        last_jam = max(jam, na.rm = TRUE)
+      )
+  }
+)
+tidy_lineups_secondhalf <- purrr::map2(
+  lineups_secondhalf,
+  teams,
+  function(x, y) {
+    tidy_lineups(
+      data = x,
+      teams = y
+    ) |> 
+      mutate(
+        half = "second",
+        last_jam = NA
+      )
+  }
+)
 ```
 
 
 ```{r}
 
-# Stats for each jammer ---------------------------------------------------
+# Stats for each blocker ---------------------------------------------------
 
-jammer_plots <- purrr::pmap(
+blocker_plots <- purrr::pmap(
   list(
-    tidy_scores_firsthalf,
-    tidy_scores_secondhalf,
-    teams
+    tidy_lineups_firsthalf,
+    tidy_lineups_secondhalf,
+    teams,
+    scores
   ),
-  function(x, y, z) {
+  function(x, y, z, s) {
     foo <- combine_two_halves(
       x, y
+      # tidy_lineups_firsthalf[[1]],
+      # tidy_lineups_secondhalf[[2]]
     ) |>
       filter(
         what %in% c(
-          "jammer",
-          "jamtotal",
-          "lead",
-          "lost"
+          "pivot",
+          "blocker1",
+          "blocker2",
+          "blocker3"
         )
+      ) |> 
+      group_by(jam, team) |> 
+      mutate(
+        n_ontrack = sum(is.na(box))
       ) |>
-      tidyr::pivot_wider(
-        names_from = what,
-        values_from = value
-      ) |>
+      left_join(
+        ## TO DO: ----
+        # add info
+        # if lead was scored against a wall
+        # scores[[1]] |> 
+        s |>
+          filter(
+            what == "jamtotal"
+          ) |> 
+          select(
+            jam,
+            team,
+            scored_against = value
+          ) |> 
+          mutate(
+            team = if_else(
+              team == teams[[1]][1],
+              teams[[1]][2],
+              teams[[1]][1]
+            )
+          )
+      ) |> 
+      mutate(
+        scored_against_pp = round(
+          as.integer(scored_against)/4,
+          2
+        )
+      ) |> 
       select(
-        - last_jam
-      ) |>
-      relocate(
         half,
-        .before = 1
-      ) |>
+        jam,
+        team,
+        n_ontrack,
+        blocker = value,
+        box,
+        scored_against_pp
+      ) |> 
       mutate(
         across(
-          c(lead, lost),
+          c(box),
           ~ if_else(
             is.na(.),
             0,
             1
           )
+        ),
+        smallwall = if_else(
+          n_ontrack < 4 & box == 0,
+          1,
+          0
         )
-      ) |>
+      ) |> 
       group_by(
         half,
         team,
-        jammer
+        blocker
       ) |>
       reframe(
         n_jams = length(unique(jam)),
-        n_points = sum(as.integer(jamtotal)),
-        n_points_per_jam = round(n_points/n_jams, 1),
-        n_lead = sum(lead),
-        prop_leads = round(n_lead/n_jams, 1)
-        # n_lost = sum(lost)
-      ) |>
+        n_jams_smallwall = sum(smallwall),
+        prop_jams_smallwall = round(n_jams_smallwall/n_jams, 1),
+        n_box = sum(box),
+        prop_box_per_jam = round(n_box/n_jams, 1),
+        n_points_against = sum(scored_against_pp),
+        n_points_against_per_jam = round(n_points_against/n_jams, 1),
+        # n_lead_against = sum(lead_scored)
+      ) |> 
       tidyr::pivot_longer(
-        cols = !c(half, team, jammer),
+        cols = !c(half, team, blocker),
         names_to = "what",
         values_to = "value"
       ) |>
       arrange(
         team,
-        jammer,
+        blocker,
         half
       )
+  
     p1 <- foo |>
       ## Filter measures and teams
       filter(
         what == "n_jams"
+        # !stringr::str_detect(what, "^n_box|^n_points|^n_jams_small")
       ) |>
       # filter(
       #   team == "HighAltitudeRollerDerby"
@@ -187,7 +306,7 @@ jammer_plots <- purrr::pmap(
       ) |>
       ggplot(
         aes(
-          x = as.factor(jammer),
+          x = as.factor(blocker),
           y = value,
           col = half,
           fill = half
@@ -212,7 +331,7 @@ jammer_plots <- purrr::pmap(
         scales = "free"
       ) +
       scale_y_continuous(n.breaks = 3) +
-      theme_minimal(15) +
+      theme_minimal(20) +
       theme(
         legend.position = "top",
         legend.justification = "right",
@@ -233,8 +352,9 @@ jammer_plots <- purrr::pmap(
       ## Filter measures and teams
       filter(
         what %in% c(
-          "prop_leads", 
-          "n_points_per_jam"
+          "prop_jams_smallwall", 
+          "prop_box_per_jam", 
+          "n_points_against_per_jam"
         )
       ) |>
       # filter(
@@ -250,7 +370,7 @@ jammer_plots <- purrr::pmap(
       ) |>
       ggplot(
         aes(
-          x = as.factor(jammer),
+          x = as.factor(blocker),
           y = value,
           col = half,
           fill = half
@@ -275,7 +395,7 @@ jammer_plots <- purrr::pmap(
         scales = "free"
       ) +
       scale_y_continuous(n.breaks = 3) +
-      theme_bw(15) +
+      theme_bw(16) +
       theme(
         legend.position = "top",
         legend.justification = "right",
@@ -298,10 +418,10 @@ jammer_plots <- purrr::pmap(
 
 ```
 
-```{r, fig.width=8, fig.height=6}
-for (i in 1:length(jammer_plots)) {
+```{r, fig.width=14, fig.height=10}
+for (i in 1:length(blocker_plots)) {
   cat("Showing statists for Game",i)
-  jammer_plots[[i]] |> 
+  blocker_plots[[i]] |> 
     print()
 }
 ```

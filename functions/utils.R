@@ -1,4 +1,6 @@
 # Custom functions ---
+
+## SCORES ----
 tidy_scores <- function(data, teams) {
   data |> 
     select(
@@ -71,4 +73,62 @@ combine_two_halves <- function(x, y) {
       )
     ) |> 
     ungroup()
+}
+
+## LINEUPS ----
+
+tidy_lineups <- function(data, teams) {
+  data |> 
+    select(
+      !matches("^x"),
+      - team_roster,
+      - jam_2
+    ) |> 
+    rename(
+      nopivot = no_pivot,
+      nopivot_2 = no_pivot_2,
+      blocker1 = blocker,
+      blocker2 = blocker_2,
+      blocker3 = blocker_3,
+      blocker1_2 = blocker_4,
+      blocker2_2 = blocker_5,
+      blocker3_2 = blocker_6
+    ) |> 
+    # glimpse() |> 
+    tidyr::pivot_longer(
+      cols = !jam,
+      names_to = "what",
+      values_to = "value"
+    ) |> 
+    mutate(
+      box = if_else(
+        stringr::str_detect(
+          what,
+          "^jammer|^pivot|^blocker"
+        ),
+        lead(value),
+        NA
+      )
+    ) |> 
+    filter(
+      !stringr::str_detect(what, "^box")
+    ) |> 
+    tidyr::separate_wider_delim(
+      what,
+      delim = "_",
+      names = c("what", "team"),
+      too_few = "align_start"
+    ) |> 
+    mutate(
+      team = if_else(
+        is.na(team),
+        teams[1],
+        teams[2]
+      )
+    ) |> 
+    mutate(
+      jam = as.integer(jam),
+      team = as.factor(team)
+    ) |> 
+    filter(!is.na(jam))
 }

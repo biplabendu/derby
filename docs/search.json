@@ -7,11 +7,11 @@
     "text": "Team scores over the course of the game"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistics for Roller Derby",
+    "objectID": "statsbook/jammer1.html",
+    "href": "statsbook/jammer1.html",
+    "title": "Jammer Statistics",
     "section": "",
-    "text": "This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
+    "text": "Jammer statistics over the course of the game\n\n\nShowing statists for Game 1\n\n\n\n\n\n\n\n\n\nShowing statists for Game 2"
   },
   {
     "objectID": "contact.html",
@@ -21,10 +21,17 @@
     "text": "Biplabendu (Billu) Das\nbiplabendu.das@gmail.com\nhttps://biplabendu.github.io/homepage/"
   },
   {
-    "objectID": "statsbook/jammer1.html",
-    "href": "statsbook/jammer1.html",
-    "title": "Jammer Statistics",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistics for Roller Derby",
     "section": "",
-    "text": "Jammer statistics over the course of the game"
+    "text": "This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
+  },
+  {
+    "objectID": "statsbook/blocker1.html",
+    "href": "statsbook/blocker1.html",
+    "title": "Blocker Statistics",
+    "section": "",
+    "text": "Blocker statistics over the course of the game\n\n\n\n\nShowing statists for Game 1\n\n\n\n\n\n\n\n\n\nShowing statists for Game 2"
   }
 ]
