@@ -4752,11 +4752,36 @@ ga('send', {
 
 <section id="blocker-statistics-over-the-course-of-the-game" class="level1">
 <h1>Blocker statistics over the course of the game</h1>
+<!-- ## Individual Stats -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definitions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><code>n_jams</code>: number of jams in which a blocker/pivot was involved in, either on track or in the box.</p></li>
+<li><p><code>n_points_against_per_jam</code>: number of points scored against a player per jam. <em>Smaller numbers are better.</em></p>
+<blockquote class="blockquote">
+<p>n_points_against_per_jam = number of points scored in all jams that a blocker/pivot is involved in (either on track or in the box) divided by <code>n_jams</code></p>
+</blockquote></li>
+<li><p><code>prop_box_per_jam</code>: proportion of jams in which a blocker/pivot sat in the box. <em>Smaller numbers are better.</em></p></li>
+<li><p><code>prop_jams_smallwall</code>: proportion of jams in which a blocker/pivot was part of a smaller wall (less than 4). <em>Smaller numbers are better.</em></p></li>
+</ul>
+</div>
+</div>
 <!-- # Read scores data -->
 <!-- # Read lineup data -->
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Showing statists for Game 1</code></pre>
+<pre><code># Showing statists for Game 1 #
+
+Team 1: HighAltitudeRollerDerby 
+Team 2: MontereyBayRollerDerby</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -4766,7 +4791,10 @@ ga('send', {
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Showing statists for Game 2</code></pre>
+<pre><code># Showing statists for Game 2 #
+
+Team 1: TreasureValleyRollerDerby 
+Team 2: HighAltitudeRollerDerby</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -4776,6 +4804,235 @@ ga('send', {
 </div>
 </div>
 </div>
+<!-- ## Team Stats -->
+<!-- ```{r} -->
+<!-- # Stats across all blockers --------------------------------------------------- -->
+<!-- blocker_plots_team <- purrr::pmap( -->
+<!--   list( -->
+<!--     tidy_lineups_firsthalf, -->
+<!--     tidy_lineups_secondhalf, -->
+<!--     teams, -->
+<!--     scores -->
+<!--   ), -->
+<!--   function(x, y, z, s) { -->
+<!--     foo <- combine_two_halves( -->
+<!--       x, y -->
+<!--       # tidy_lineups_firsthalf[[1]], -->
+<!--       # tidy_lineups_secondhalf[[2]] -->
+<!--     ) |> -->
+<!--       filter( -->
+<!--         what %in% c( -->
+<!--           "pivot", -->
+<!--           "blocker1", -->
+<!--           "blocker2", -->
+<!--           "blocker3" -->
+<!--         ) -->
+<!--       ) |>  -->
+<!--       group_by(jam, team) |>  -->
+<!--       mutate( -->
+<!--         n_ontrack = sum(is.na(box)) -->
+<!--       ) |> -->
+<!--       left_join( -->
+<!--         ## TO DO: ---- -->
+<!--         # add info -->
+<!--         # if lead was scored against a wall -->
+<!--         # scores[[1]] |>  -->
+<!--         s |> -->
+<!--           filter( -->
+<!--             what == "jamtotal" -->
+<!--           ) |>  -->
+<!--           select( -->
+<!--             jam, -->
+<!--             team, -->
+<!--             scored_against = value -->
+<!--           ) |>  -->
+<!--           mutate( -->
+<!--             team = if_else( -->
+<!--               team == teams[[1]][1], -->
+<!--               teams[[1]][2], -->
+<!--               teams[[1]][1] -->
+<!--             ) -->
+<!--           ) -->
+<!--       ) |>  -->
+<!--       mutate( -->
+<!--         scored_against_pp = round( -->
+<!--           as.integer(scored_against)/4, -->
+<!--           2 -->
+<!--         ) -->
+<!--       ) |>  -->
+<!--       select( -->
+<!--         half, -->
+<!--         jam, -->
+<!--         team, -->
+<!--         n_ontrack, -->
+<!--         blocker = value, -->
+<!--         box, -->
+<!--         scored_against_pp -->
+<!--       ) |>  -->
+<!--       mutate( -->
+<!--         across( -->
+<!--           c(box), -->
+<!--           ~ if_else( -->
+<!--             is.na(.), -->
+<!--             0, -->
+<!--             1 -->
+<!--           ) -->
+<!--         ), -->
+<!--         smallwall = if_else( -->
+<!--           n_ontrack < 4 & box == 0, -->
+<!--           1, -->
+<!--           0 -->
+<!--         ) -->
+<!--       ) |>  -->
+<!--       group_by( -->
+<!--         half, -->
+<!--         team, -->
+<!--         blocker -->
+<!--       ) |> -->
+<!--       reframe( -->
+<!--         n_jams = length(unique(jam)), -->
+<!--         n_jams_smallwall = sum(smallwall), -->
+<!--         prop_jams_smallwall = round(n_jams_smallwall/n_jams, 1), -->
+<!--         n_box = sum(box), -->
+<!--         prop_box_per_jam = round(n_box/n_jams, 1), -->
+<!--         n_points_against = sum(scored_against_pp), -->
+<!--         n_points_against_per_jam = round(n_points_against/n_jams, 1), -->
+<!--         # n_lead_against = sum(lead_scored) -->
+<!--       ) |>  -->
+<!--       tidyr::pivot_longer( -->
+<!--         cols = !c(half, team, blocker), -->
+<!--         names_to = "what", -->
+<!--         values_to = "value" -->
+<!--       ) |> -->
+<!--       arrange( -->
+<!--         team, -->
+<!--         blocker, -->
+<!--         half -->
+<!--       ) -->
+<!--     p1 <- foo |> -->
+<!--       ## Filter measures and teams -->
+<!--       filter( -->
+<!--         what == "n_jams" -->
+<!--         # !stringr::str_detect(what, "^n_box|^n_points|^n_jams_small") -->
+<!--       ) |> -->
+<!--       # filter( -->
+<!--       #   team == "HighAltitudeRollerDerby" -->
+<!--       # ) |> -->
+<!--       mutate( -->
+<!--         half = factor(half, levels = c("second", "first")), -->
+<!--         team = if_else( -->
+<!--           team == "HighAltitudeRollerDerby", -->
+<!--           "HARD", -->
+<!--           "Opponent" -->
+<!--         ) -->
+<!--       ) |> -->
+<!--       ggplot( -->
+<!--         aes( -->
+<!--           x = as.factor(team), -->
+<!--           y = value, -->
+<!--           col = half, -->
+<!--           fill = half -->
+<!--         ) -->
+<!--       ) + -->
+<!--       geom_boxplot( -->
+<!--         col = "black" -->
+<!--       ) + -->
+<!--       labs( -->
+<!--         x = "Blocker", -->
+<!--         y = "Value", -->
+<!--         # subtitle = glue::glue( -->
+<!--         #   "{z[1]} vs.\n{z[2]}" -->
+<!--         # ) -->
+<!--       ) + -->
+<!--       facet_grid( -->
+<!--         half ~ what, -->
+<!--         scales = "free" -->
+<!--       ) + -->
+<!--       scale_y_continuous(n.breaks = 3) + -->
+<!--       theme_minimal(20) + -->
+<!--       theme( -->
+<!--         legend.position = "top", -->
+<!--         legend.justification = "right", -->
+<!--         # legend.spacing.y = unit(1.0, 'cm'), -->
+<!--         legend.text = element_text(margin = margin(t = 5)), -->
+<!--         legend.title = element_blank() -->
+<!--       ) + -->
+<!--       guides( -->
+<!--         color = guide_legend(nrow = 1), -->
+<!--         fill = guide_legend(nrow = 1) -->
+<!--       ) + -->
+<!--       scale_fill_manual( -->
+<!--         values = c("orange", "yellow") -->
+<!--       ) -->
+<!--     p2 <- foo |> -->
+<!--       ## Filter measures and teams -->
+<!--       filter( -->
+<!--         what %in% c( -->
+<!--           # "prop_jams_smallwall",  -->
+<!--           "prop_box_per_jam",  -->
+<!--           "n_points_against_per_jam" -->
+<!--         ) -->
+<!--       ) |> -->
+<!--       # filter( -->
+<!--       #   team == "HighAltitudeRollerDerby" -->
+<!--       # ) |> -->
+<!--       mutate( -->
+<!--         half = factor(half, levels = c("second", "first")), -->
+<!--         team = if_else( -->
+<!--           team == "HighAltitudeRollerDerby", -->
+<!--           "HARD", -->
+<!--           "Opponent" -->
+<!--         ) -->
+<!--       ) |> -->
+<!--       ggplot( -->
+<!--         aes( -->
+<!--           x = as.factor(team), -->
+<!--           y = value, -->
+<!--           col = half, -->
+<!--           fill = half -->
+<!--         ) -->
+<!--       ) + -->
+<!--       geom_boxplot(col="black") + -->
+<!--       labs( -->
+<!--         x = "Blocker", -->
+<!--         y = "Value", -->
+<!--         title = glue::glue( -->
+<!--           "{z[1]} vs.\n{z[2]}" -->
+<!--         ) -->
+<!--       ) + -->
+<!--       facet_grid( -->
+<!--         half ~ what, -->
+<!--         scales = "free" -->
+<!--       ) + -->
+<!--       scale_y_continuous(n.breaks = 3) + -->
+<!--       theme_bw(16) + -->
+<!--       theme( -->
+<!--         legend.position = "top", -->
+<!--         legend.justification = "right", -->
+<!--         # legend.spacing.y = unit(1.0, 'cm'), -->
+<!--         legend.text = element_text(margin = margin(t = 5)), -->
+<!--         legend.title = element_blank() -->
+<!--       ) + -->
+<!--       guides( -->
+<!--         color = guide_legend(nrow = 1), -->
+<!--         fill = guide_legend(nrow = 1) -->
+<!--       ) + -->
+<!--       scale_fill_manual( -->
+<!--         values = c("orange", "yellow") -->
+<!--       ) -->
+<!--     p1 + p2 + plot_layout(widths = c(1, 2)) -->
+<!--   } -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ```{r, fig.width=14, fig.height=10} -->
+<!-- for (i in 1:length(blocker_plots_team)) { -->
+<!--   cat("# Showing statists for Game",i,"#\n\n") -->
+<!--   cat("Team 1:", teams[[i]][1], "\n") -->
+<!--   cat("Team 2:", teams[[i]][2]) -->
+<!--   blocker_plots_team[[i]] |>  -->
+<!--     print() -->
+<!-- } -->
+<!-- ``` -->
 
 
 </section>

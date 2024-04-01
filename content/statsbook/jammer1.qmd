@@ -8,6 +8,17 @@ editor_options:
 
 # Jammer statistics over the course of the game
 
+::: {.callout-note}
+## Definitions
+
+- `n_jams`: number of jams started by a jammer, either on track or in the box. 
+
+- `n_points_per_jam`: number of points scored by the player per jam. *Bigger numbers are better.*
+
+- `prop_leads`: proportion of jams in which the jammer obtained lead. *Bigger numbers are better.*
+
+:::
+
 ```{r}
 library(dplyr)
 library(ggplot2)
@@ -300,7 +311,9 @@ jammer_plots <- purrr::pmap(
 
 ```{r, fig.width=8, fig.height=6}
 for (i in 1:length(jammer_plots)) {
-  cat("Showing statists for Game",i)
+  cat("# Showing statists for Game",i,"#\n\n")
+  cat("Team 1:", teams[[i]][1], "\n")
+  cat("Team 2:", teams[[i]][2])
   jammer_plots[[i]] |> 
     print()
 }

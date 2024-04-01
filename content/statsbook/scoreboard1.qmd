@@ -161,6 +161,9 @@ scoreboard_plots <- purrr::map2(
 
 ```{r}
 for (i in 1:length(scoreboard_plots)) {
+  cat("# Showing statists for Game",i,"#\n\n")
+  cat("Team 1:", teams[[i]][1], "\n")
+  cat("Team 2:", teams[[i]][2])
   scoreboard_plots[[i]] |> 
     print()
 }
