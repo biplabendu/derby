@@ -226,6 +226,7 @@ blocker_plots <- purrr::pmap(
       mutate(
         n_ontrack = sum(is.na(box))
       ) |>
+      ungroup() |> 
       left_join(
         ## TO DO: ----
         # add info
@@ -240,11 +241,13 @@ blocker_plots <- purrr::pmap(
             team,
             scored_against = value
           ) |> 
+          distinct() |> 
           mutate(
+            team = as.character(team),
             team = if_else(
-              team == teams[[1]][1],
-              teams[[1]][2],
-              teams[[1]][1]
+              team == z[1],
+              z[2],
+              z[1]
             )
           )
       ) |> 

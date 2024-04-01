@@ -42,8 +42,7 @@ tidy_scores <- function(data, teams) {
     group_by(jam, what, team) |> 
     reframe(value = max(value, na.rm = TRUE)) |> 
     mutate(
-      jam = as.integer(jam),
-      team = as.factor(team)
+      jam = as.integer(jam)
     ) |> 
     filter(!is.na(jam))
 }
@@ -127,8 +126,7 @@ tidy_lineups <- function(data, teams) {
       )
     ) |> 
     mutate(
-      jam = as.integer(jam),
-      team = as.factor(team)
+      jam = as.integer(jam)
     ) |> 
     filter(!is.na(jam))
 }
