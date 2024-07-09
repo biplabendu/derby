@@ -1,0 +1,61 @@
+---
+title: "HARD Eligibility Tracker"
+reference-location: margin
+citation-location: margin
+editor_options: 
+  chunk_output_type: console
+---
+
+# XXXX
+
+```{r}
+library(dplyr)
+library(ggplot2)
+source(here::here("./functions/utils.R"))
+
+# Load google sheets ----------------------------------------------------------
+# links <- c(
+#   practice = "https://docs.google.com/spreadsheets/d/1mJuAuvHl95e39-0kdC1c_JkiB7lsaWw0O8UnnQobMN0",
+#   volunteer = "https://docs.google.com/spreadsheets/d/149v3bE1N_0GNkyiTo4eFn-DCsJ1xDUolFQ9V3komxRM"
+# )
+
+links <- c(
+  practice = "https://docs.google.com/spreadsheets/d/e/2PACX-1vThN94KzaEV4gk9lICkn7HnOJTAPtTDQuDypir_pxXMzwi7oGxgBbM21gVx6vjHoz-KZV2Jl0kHIhvm/pub?gid=1819256109&single=true&output=csv",
+  volunteer = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRKuh5MOL8VJi3VD_WtbbLVyH8O9rbjhkKYWET8IlUib_NBhSUW_jRVA7bZR18K8cSgmPcADy2ESaAa/pub?gid=845902717&single=true&output=csv"
+)
+
+# sheets <- c(
+#   2,
+#   1
+# )
+
+```
+
+
+# Load data
+
+```{r}
+
+dat <-  purrr::map(
+  links,
+  # sheets,
+  # ~ googlesheets4::read_sheet(
+  #   .x,
+  #   sheet = .y
+  # ) |> 
+  ~ read.csv(
+    .x
+  ) |> 
+    janitor::clean_names()
+  ) |> 
+  setNames(
+    names(links)
+  )
+  
+dat[["practice"]] |> 
+  glimpse()
+
+dat[["volunteer"]] |>
+  glimpse()
+```
+
