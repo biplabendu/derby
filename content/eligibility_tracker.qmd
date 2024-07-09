@@ -4,6 +4,8 @@ reference-location: margin
 citation-location: margin
 editor_options: 
   chunk_output_type: console
+comments:
+  hypothesis: true
 ---
 
 # XXXX
