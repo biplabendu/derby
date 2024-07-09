@@ -61,3 +61,127 @@ dat[["volunteer"]] |>
   glimpse()
 ```
 
+# Subset
+
+## Practice hours
+
+```{r}
+tdat <- list()
+
+tdat[["practice"]] <- dat[["practice"]] |> 
+  as_tibble() |> 
+  select(
+    timestamp,
+    p_date = practice_date,
+    p_type = practice_type,
+    off_skates,
+    in_attendance
+  ) |> 
+  mutate(
+    across(
+      everything(),
+      ~ if_else(
+          .x == "",
+          NA,
+          .x
+        )
+    )
+  ) |> 
+  mutate(
+    timestamp = lubridate::mdy_hms(timestamp) |>
+      lubridate::as_date(),
+    p_date = lubridate::mdy(p_date),
+    p_type = tolower(p_type)
+  ) |> 
+  filter(
+    p_date >= lubridate::ymd(
+      "2024-06-22"
+    )
+  ) |> 
+  mutate(
+    p_type2 = case_when(
+      stringr::str_detect(p_type, "off\\ skates") ~ "osw",
+      stringr::str_detect(p_type, "all\\ stars") ~ "star",
+      stringr::str_detect(p_type, "drop\\ in") ~ "di",
+      stringr::str_detect(p_type, "league\\ meeting") ~ "lm",
+      stringr::str_detect(p_type, "league") ~ "lge",
+      .default = "other"
+    ),
+    .after = p_type
+  )
+
+tdat[["practice"]] |> 
+  DT::datatable()
+```
+
+Let's combine the two columns `off_skates` and `in_attendance` to obtain a
+complete list of all players present for a practice type (p_type OR p_type2).
+
+```{r}
+foo <- tdat[["practice"]] |> 
+  tidyr::unite(
+    "player",
+    c(off_skates, in_attendance),
+    sep = ", ",
+    remove = FALSE
+  ) |> 
+  tidyr::separate_longer_delim(
+    player,
+    delim = ", "
+  ) |>
+  filter(
+    player != "NA"
+  ) |> 
+  select(
+    player,
+    p_date,
+    p_type2,
+    p_type
+  ) |> 
+  mutate(
+    error = if_else(
+      p_date > Sys.Date(),
+      "incorrect date",
+      NA
+    ),
+    .before = 1
+  ) |> 
+  arrange(
+    error,
+    player,
+    desc(
+      p_date
+    ),
+    p_type2,
+    p_type
+  ) |> 
+  mutate(
+    player = tolower(trimws(player))
+  )
+
+foo |> 
+  DT::datatable()
+```
+
+
+### Problem 1: Dates
+
+As shown in the `error` field above, some of the dates are incorrect.
+
+### Problem 2: Names
+
+Inconsistency in player names can lead to underestimation of hours.
+Let's check the different names in the `player` field.
+
+```{r}
+foo |> 
+  count(
+    player
+  ) |> 
+  arrange(
+    player
+  ) |> 
+  pull(1)
+```
+
+
