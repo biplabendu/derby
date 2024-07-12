@@ -8,7 +8,6 @@ comments:
   hypothesis: true
 ---
 
-# YYYY
 
 ```{r}
 library(dplyr)
@@ -34,9 +33,10 @@ links <- c(
 ```
 
 
-# Load data
 
 ```{r}
+
+# Load data
 
 dat <-  purrr::map(
   links,
@@ -54,29 +54,33 @@ dat <-  purrr::map(
     names(links)
   )
   
-dat[["practice"]] |> 
-  glimpse()
-
-dat[["volunteer"]] |>
-  glimpse()
+# dat[["practice"]] |> 
+#   glimpse()
+# 
+# dat[["volunteer"]] |>
+#   glimpse()
 ```
 
+
+```{r}
 # Subset
 
 ## Practice hours
 
-```{r}
 tdat <- list()
 
-tdat[["practice"]] <- dat[["practice"]] |> 
+tdat[["practice"]] <- dat[["practice"]] |>
+# dat[["practice"]] |> 
   as_tibble() |> 
   select(
     timestamp,
     p_date = practice_date,
     p_type = practice_type,
     off_skates,
-    in_attendance
-  ) |> 
+    in_attendance,
+    duration_pop = how_long_was_your_pop_up,
+    duration_osw = how_long_did_you_work_out
+  ) |>
   mutate(
     across(
       everything(),
@@ -97,34 +101,86 @@ tdat[["practice"]] <- dat[["practice"]] |>
     p_date >= lubridate::ymd(
       "2024-06-22"
     )
-  ) |> 
+  ) |>
   mutate(
     p_type2 = case_when(
-      stringr::str_detect(p_type, "off\\ skates") ~ "osw",
-      stringr::str_detect(p_type, "all\\ stars") ~ "star",
-      stringr::str_detect(p_type, "drop\\ in") ~ "di",
-      stringr::str_detect(p_type, "league\\ meeting") ~ "lm",
-      stringr::str_detect(p_type, "league") ~ "lge",
-      .default = "other"
+      stringr::str_detect(p_type, "\\(bw\\)") ~ "bw",
+      stringr::str_detect(p_type, "\\(di\\)") ~ "di",
+      stringr::str_detect(p_type, "\\(fmc\\)") ~ "fmc",
+      stringr::str_detect(p_type, "\\(lge\\)") ~ "lge",
+      stringr::str_detect(p_type, "\\(lm\\)") ~ "lm",
+      stringr::str_detect(p_type, "\\(osw\\)") ~ "osw",
+      stringr::str_detect(p_type, "\\(po\\)") ~ "pop",
+      stringr::str_detect(p_type, "\\(star\\)") ~ "star",
+      .default = "Uncategorized"
     ),
     .after = p_type
+  ) |> 
+  mutate(
+    error = if_else(
+      lubridate::year(timestamp) != lubridate::year(p_date),
+      TRUE,
+      FALSE
+    ),
+    .before = 1
   )
-
-tdat[["practice"]] |> 
-  DT::datatable()
 ```
 
-Let's combine the two columns `off_skates` and `in_attendance` to obtain a
-complete list of all players present for a practice type (p_type OR p_type2).
+## Errors that needs fix
 
 ```{r}
-foo <- tdat[["practice"]] |> 
+
+tdat[["practice"]] |> 
+  filter(
+    error
+  ) |> 
+  select(
+    timestamp,
+    practice_date = p_date
+  ) |> 
+  left_join(
+    dat[["practice"]] |> 
+      select(
+        1:4, 6
+      ) |> 
+      mutate(
+        row_number = 1:n()
+      ) |> 
+      mutate(
+        timestamp = lubridate::mdy_hms(timestamp) |>
+          lubridate::as_date(),
+        practice_date = lubridate::mdy(practice_date)
+      ),
+    join_by(
+      timestamp,
+      practice_date
+    )
+  ) |> 
+  relocate(
+    row_number,
+    .before = 1
+  ) |> 
+  kableExtra::kable()
+```
+
+> Removing the rows with error from the data.
+
+# Practice Credit
+
+```{r}
+foo <- tdat[["practice"]] |>
+  filter(
+    error == FALSE
+  ) |> 
+  select(
+    - error
+  ) |>
   tidyr::unite(
     "player",
     c(off_skates, in_attendance),
     sep = ", ",
     remove = FALSE
-  ) |> 
+  ) |>  
   tidyr::separate_longer_delim(
     player,
     delim = ", "
@@ -133,55 +189,132 @@ foo <- tdat[["practice"]] |>
     player != "NA"
   ) |> 
   select(
+    - in_attendance,
+    - off_skates
+  ) |> 
+  rowwise() |> 
+  mutate(
+    across(
+      matches("^duration"),
+      ~ case_when(
+        is.na(.) ~ 0,
+        .default = readr::parse_number(.)
+      ),
+      .names = "new_{.col}"
+    ),
+    new_duration_osw = if_else(
+      is.na(new_duration_osw) &
+        stringr::str_detect(
+            duration_osw, 
+            "hr|hour"
+          ),
+      1,
+      new_duration_osw
+    ),
+    new_duration_pop = if_else(
+      is.na(new_duration_pop) &
+        stringr::str_detect(
+            duration_pop, 
+            "hr|hour"
+          ),
+      1,
+      new_duration_pop
+    ),
+  ) |> 
+  select(
     player,
-    p_date,
+    timestamp,
     p_type2,
-    p_type
+    p_type,
+    dur_pop = new_duration_pop,
+    dur_osw = new_duration_osw
   ) |> 
   mutate(
-    error = if_else(
-      p_date > Sys.Date(),
-      "incorrect date",
-      NA
-    ),
-    .before = 1
-  ) |> 
-  arrange(
-    error,
-    player,
-    desc(
-      p_date
-    ),
-    p_type2,
-    p_type
-  ) |> 
-  mutate(
-    player = tolower(trimws(player))
+    credit_pop = 1*dur_pop,
+    credit_osw = 0.5*dur_osw,
+    credit_other = case_when(
+      p_type2 == "lge" ~ 1,
+      p_type2 == "star" ~ 1,
+      p_type2 == "lm" ~ 1,
+      p_type2 == "di" ~ 1,
+      p_type2 == "bw" ~ 1,
+      p_type2 == "fmc" ~ 1,
+      .default = 0
+    )
   )
 
-foo |> 
+bar <- foo |> 
+  # mutate_all(as.factor) |> summary()
+  mutate(
+    credit_total = rowSums(
+      across(
+        matches("credit")
+      )
+    )
+  ) |> 
+  mutate(
+    player = tolower(trimws(player)),
+    player = case_when(
+      stringr::str_detect(player, "mini") ~ "mini fridge",
+      stringr::str_detect(player, "toxic") ~ "gin n. toxic",
+      stringr::str_detect(player, "beaver") ~ "eager beaver",
+      .default = player
+    )
+  ) |> 
+  group_by(
+    player
+  ) |> 
+  reframe(
+    credit_current = sum(credit_total)
+  ) |> 
+  arrange(
+    desc(credit_current)
+  ) |> 
+  mutate(
+    credit_reqd = 11,
+    perc_completed = round(
+      credit_current/credit_reqd*100,
+      0
+    ) |> 
+      paste(" %")
+  )
+
+bar |> 
   DT::datatable()
 ```
 
+## Plot
 
-### Problem 1: Dates
+```{r fig.width=5, fig.height=7}
+o_players = bar |> arrange(credit_current) |> pull(player)
 
-As shown in the `error` field above, some of the dates are incorrect.
-
-### Problem 2: Names
-
-Inconsistency in player names can lead to underestimation of hours.
-Let's check the different names in the `player` field.
-
-```{r}
-foo |> 
-  count(
-    player
+bar |> 
+  mutate(
+    player = factor(
+      player,
+      levels = o_players
+    )
   ) |> 
-  arrange(
-    player
-  ) |> 
-  pull(1)
+  ggplot(
+    aes(x = player, y = credit_current)
+  ) +
+  geom_histogram(
+    stat = "identity",
+    fill = "yellow",
+    col = "black"
+  ) +
+  geom_hline(
+    yintercept = 5.5,
+    col = "grey30",
+    alpha = .8,
+    lty = 2
+  ) +
+  labs(
+    title = "Practice credits",
+    x = "",
+    y = "Credits after 6/22/2024"
+  ) +
+  coord_flip() +
+  theme_minimal(16)
 ```
-
 

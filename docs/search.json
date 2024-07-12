@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "eligibility_tracker.html#practice-hours",
-    "href": "eligibility_tracker.html#practice-hours",
+    "objectID": "eligibility_tracker.html",
+    "href": "eligibility_tracker.html",
     "title": "HARD Eligibility Tracker",
-    "section": "Practice hours",
-    "text": "Practice hours\n\n\n\n\n\n\nLet’s combine the two columns off_skates and in_attendance to obtain a complete list of all players present for a practice type (p_type OR p_type2).\n\n\n\n\n\n\n\nProblem 1: Dates\nAs shown in the error field above, some of the dates are incorrect.\n\n\nProblem 2: Names\nInconsistency in player names can lead to underestimation of hours. Let’s check the different names in the player field.\n\n\n [1] \"allbuckedup\"         \"atomic\"              \"bats hit crazy\"     \n [4] \"beaver\"              \"catastro'faery\"      \"crawdaddy\"          \n [7] \"critical roller\"     \"dud bolt\"            \"eager beaver\"       \n[10] \"gin n. toxic\"        \"glitter bomb\"        \"hellbender\"         \n[13] \"hooligan\"            \"jess reckless\"       \"kate smush\"         \n[16] \"kid radical\"         \"little evil\"         \"mealz on wheelz\"    \n[19] \"mean jean\"           \"mini\"                \"mini fridge\"        \n[22] \"mo u. down\"          \"muffin monster\"      \"murphy's law\"       \n[25] \"needles and threats\" \"novacaine\"           \"one destruction\"    \n[28] \"pandamonium\"         \"papa wheely\"         \"pi r scared\"        \n[31] \"rev'd\"               \"scary read\"          \"sun-plowher\"        \n[34] \"swamp\"               \"the knock out\"       \"toxic\""
+    "section": "",
+    "text": "row_number\ntimestamp\npractice_date\npractice_type\ncoach\nleague_skaters\n\n\n\n\n360\n2023-11-29\n2923-11-29\nLeague Skills (Wednesdays 6pm - 8pm)\nMo\nAllBuckedUp, Glitter Bomb, Little Evil, Mini-Fridge, Mo U. Down, Novacaine, Sun-plow-her\n\n\n498\n2024-04-10\n2025-04-10\n(LGE) League Skills\nMo\n\n\n\n587\n2024-05-27\n2924-05-23\n(STAR) All Stars\nMo\n\n\n\n594\n2024-05-30\n2924-05-30\n(STAR) All Stars\nNo/tko\n\n\n\n\n\n\n\n\n\n\nRemoving the rows with error from the data."
+  },
+  {
+    "objectID": "eligibility_tracker.html#errors-that-needs-fix",
+    "href": "eligibility_tracker.html#errors-that-needs-fix",
+    "title": "HARD Eligibility Tracker",
+    "section": "",
+    "text": "row_number\ntimestamp\npractice_date\npractice_type\ncoach\nleague_skaters\n\n\n\n\n360\n2023-11-29\n2923-11-29\nLeague Skills (Wednesdays 6pm - 8pm)\nMo\nAllBuckedUp, Glitter Bomb, Little Evil, Mini-Fridge, Mo U. Down, Novacaine, Sun-plow-her\n\n\n498\n2024-04-10\n2025-04-10\n(LGE) League Skills\nMo\n\n\n\n587\n2024-05-27\n2924-05-23\n(STAR) All Stars\nMo\n\n\n\n594\n2024-05-30\n2924-05-30\n(STAR) All Stars\nNo/tko\n\n\n\n\n\n\n\n\n\n\nRemoving the rows with error from the data."
+  },
+  {
+    "objectID": "eligibility_tracker.html#plot",
+    "href": "eligibility_tracker.html#plot",
+    "title": "HARD Eligibility Tracker",
+    "section": "Plot",
+    "text": "Plot"
   },
   {
     "objectID": "statsbook/blocker1.html",
