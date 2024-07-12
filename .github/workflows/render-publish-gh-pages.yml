@@ -2,6 +2,10 @@ on:
   workflow_dispatch:
   push:
     branches: main
+  schedule:
+  # run every day at 10:00 hours UTC
+  # 10:00 UTC = 03:00 Arizona time
+    - cron: '0 10 * * *'
 
 name: Quarto Render and Publish
 
