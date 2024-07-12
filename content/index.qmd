@@ -2,7 +2,12 @@
 title: "Statistics for Roller Derby"
 ---
 
-Last updated on `r Sys.time()`.
+```{r}
+dttm <- Sys.Date()
+```
+
+
+Last updated on `r dttm`.
 
 ---
 

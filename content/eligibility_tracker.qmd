@@ -8,6 +8,12 @@ comments:
   hypothesis: true
 ---
 
+```{r}
+dttm <- Sys.Date()
+```
+
+
+Last updated on `r dttm`.
 
 ```{r}
 library(dplyr)
