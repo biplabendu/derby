@@ -2,6 +2,8 @@
 title: "Statistics for Roller Derby"
 ---
 
+Last updated on `r Sys.time()`.
+
 ---
 
 This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.
