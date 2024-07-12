@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistics for Roller Derby",
     "section": "",
-    "text": "This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
+    "text": "Last updated on r Sys.time().\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
   },
   {
     "objectID": "statsbook/blocker1.html",
