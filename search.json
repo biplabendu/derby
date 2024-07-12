@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistics for Roller Derby",
+    "section": "",
+    "text": "This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
+  },
+  {
+    "objectID": "statsbook/blocker1.html",
+    "href": "statsbook/blocker1.html",
+    "title": "Blocker Statistics",
+    "section": "",
+    "text": "Blocker statistics over the course of the game\n\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams in which a blocker/pivot was involved in, either on track or in the box.\nn_points_against_per_jam: number of points scored against a player per jam. Smaller numbers are better.\n\nn_points_against_per_jam = number of points scored in all jams that a blocker/pivot is involved in (either on track or in the box) divided by n_jams\n\nprop_box_per_jam: proportion of jams in which a blocker/pivot sat in the box. Smaller numbers are better.\nprop_jams_smallwall: proportion of jams in which a blocker/pivot was part of a smaller wall (less than 4). Smaller numbers are better.\n\n\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Biplabendu (Billu) Das\nbiplabendu.das@gmail.com\nhttps://biplabendu.github.io/homepage/"
+  },
+  {
+    "objectID": "eligibility_tracker.html",
+    "href": "eligibility_tracker.html",
+    "title": "HARD Eligibility Tracker",
+    "section": "",
+    "text": "row_number\ntimestamp\npractice_date\npractice_type\ncoach\nleague_skaters\n\n\n\n\n360\n2023-11-29\n2923-11-29\nLeague Skills (Wednesdays 6pm - 8pm)\nMo\nAllBuckedUp, Glitter Bomb, Little Evil, Mini-Fridge, Mo U. Down, Novacaine, Sun-plow-her\n\n\n498\n2024-04-10\n2025-04-10\n(LGE) League Skills\nMo\n\n\n\n587\n2024-05-27\n2924-05-23\n(STAR) All Stars\nMo\n\n\n\n594\n2024-05-30\n2924-05-30\n(STAR) All Stars\nNo/tko\n\n\n\n\n\n\n\nRemoving the rows with error from the data."
+  },
+  {
+    "objectID": "eligibility_tracker.html#errors-that-needs-fix",
+    "href": "eligibility_tracker.html#errors-that-needs-fix",
+    "title": "HARD Eligibility Tracker",
+    "section": "",
+    "text": "row_number\ntimestamp\npractice_date\npractice_type\ncoach\nleague_skaters\n\n\n\n\n360\n2023-11-29\n2923-11-29\nLeague Skills (Wednesdays 6pm - 8pm)\nMo\nAllBuckedUp, Glitter Bomb, Little Evil, Mini-Fridge, Mo U. Down, Novacaine, Sun-plow-her\n\n\n498\n2024-04-10\n2025-04-10\n(LGE) League Skills\nMo\n\n\n\n587\n2024-05-27\n2924-05-23\n(STAR) All Stars\nMo\n\n\n\n594\n2024-05-30\n2924-05-30\n(STAR) All Stars\nNo/tko\n\n\n\n\n\n\n\nRemoving the rows with error from the data."
+  },
+  {
+    "objectID": "eligibility_tracker.html#plot",
+    "href": "eligibility_tracker.html#plot",
+    "title": "HARD Eligibility Tracker",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "statsbook/jammer1.html",
+    "href": "statsbook/jammer1.html",
+    "title": "Jammer Statistics",
+    "section": "",
+    "text": "Jammer statistics over the course of the game\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams started by a jammer, either on track or in the box.\nn_points_per_jam: number of points scored by the player per jam. Bigger numbers are better.\nprop_leads: proportion of jams in which the jammer obtained lead. Bigger numbers are better.\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers"
+  },
+  {
+    "objectID": "statsbook/scoreboard1.html",
+    "href": "statsbook/scoreboard1.html",
+    "title": "Scoreboard",
+    "section": "",
+    "text": "Team scores over the course of the game\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers"
+  }
+]
