@@ -5,7 +5,7 @@ on:
   schedule:
   # run every day at 10:00 hours UTC
   # 10:00 UTC = 03:00 Arizona time
-    - cron: '0 10 * * *'
+    - cron: '30 6 * * *'
 
 name: Quarto Render and Publish
 
