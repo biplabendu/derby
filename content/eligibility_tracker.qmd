@@ -427,7 +427,7 @@ volunteer <- dat[[2]] |>
 volunteer |> 
   filter(
     year == "2024" &
-      month == "jun"
+      month == "jul"
   ) |> 
   arrange(
     desc(month_year)
@@ -436,7 +436,7 @@ volunteer |>
     - month_year
   ) |> 
   DT::datatable(
-    caption = "Number of total volunteer hours for June, 2024"
+    caption = "Number of total volunteer hours for July, 2024"
   )
   
 ```
