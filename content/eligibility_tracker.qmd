@@ -325,3 +325,119 @@ bar |>
   theme_minimal(16)
 ```
 
+# Volunteer Hours
+
+```{r}
+volunteer <- dat[[2]] |> 
+  as_tibble() |> 
+  select(
+    timestamp,
+    player = derby_name,
+    player2 = who_are_you_though,
+    month = month_of_volunteer_hours,
+    volunteer_hrs = amount_of_volunteer_hours,
+    purchased_hrs = how_many_hours_are_you_purchasing_10_hr_will_need_to_confirm_payment_before_credit_is_given,
+    rollover_hrs = how_many_hours_will_you_be_rolling_over_this_month_from_last_month_keep_in_mind_that_you_cannot_roll_over_hours_if_you_have_already_completed_the_minimum_number_of_required_hours_for_the_current_month_you_can_roll_over_up_to_4_hours_from_the_previous_month_and_are_responsible_for_keeping_track_of_your_own_surplus_hours
+  ) |> 
+  mutate(
+    across(
+      everything(),
+      ~ if_else(
+          .x == "",
+          NA,
+          .x
+        )
+    )
+  ) |> 
+  mutate(
+    timestamp = lubridate::mdy_hms(timestamp) |> lubridate::date(),
+    year = lubridate::year(timestamp),
+    month2 = lubridate::mdy(month) |> lubridate::month(label = TRUE),
+    .before = timestamp
+  ) |> 
+  mutate(
+    month3 = if_else(
+      is.na(month2),
+      month,
+      month2
+    ) |> 
+      as.character() |> 
+      tolower()
+  ) |> 
+  # count(month3) |> print(n = 24)
+  mutate(
+    month = case_when(
+      stringr::str_detect(month3, "jan") ~ "jan",
+      stringr::str_detect(month3, "feb") ~ "feb",
+      stringr::str_detect(month3, "mar") ~ "mar",
+      stringr::str_detect(month3, "apr") ~ "apr",
+      stringr::str_detect(month3, "may") ~ "may",
+      stringr::str_detect(month3, "jun") ~ "jun",
+      stringr::str_detect(month3, "jul") ~ "jul",
+      stringr::str_detect(month3, "aug") ~ "aug",
+      stringr::str_detect(month3, "sep") ~ "sep",
+      stringr::str_detect(month3, "oct") ~ "oct",
+      stringr::str_detect(month3, "nov") ~ "nov",
+      stringr::str_detect(month3, "dec") ~ "dec",
+      .default = NA
+    ),
+    month_year = lubridate::my(
+      paste(month, year, sep = "-")
+    ),
+    player = if_else(
+      is.na(player),
+      player2,
+      player
+    )
+  ) |> 
+  # count(as.character(month)) |> print(n = 24)
+  select(
+    month_year,
+    year,
+    month,
+    player,
+    matches("hrs$")
+  ) |> 
+  mutate(
+    across(
+      matches("hrs$"),
+      ~ readr::parse_number(.x)
+    ),
+    total_hrs = rowSums(
+      across(
+        matches("hrs$")
+      ),
+      na.rm = TRUE
+    ),
+    .before = volunteer_hrs
+  ) |> 
+  group_by(
+    month_year,
+    year,
+    month,
+    player
+  ) |> 
+  reframe(
+    across(
+      matches("hrs$"),
+      ~ sum(.x, na.rm = TRUE)
+    )
+  )
+
+volunteer |> 
+  filter(
+    year == "2024" &
+      month == "jun"
+  ) |> 
+  arrange(
+    desc(month_year)
+  ) |> 
+  select(
+    - month_year
+  ) |> 
+  DT::datatable(
+    caption = "Number of total volunteer hours for June, 2024"
+  )
+  
+```
+
