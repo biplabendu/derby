@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistics for Roller Derby",
     "section": "",
-    "text": "Last updated on 2024-07-18.\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
+    "text": "Last updated on 2024-07-19.\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nFor questions, please contact us via email."
   },
   {
     "objectID": "statsbook/blocker1.html",
@@ -25,14 +25,14 @@
     "href": "eligibility_tracker.html",
     "title": "HARD Eligibility Tracker",
     "section": "",
-    "text": "Last updated on 2024-07-18."
+    "text": "Last updated on 2024-07-19."
   },
   {
     "objectID": "eligibility_tracker.html#errors-that-needs-fix",
     "href": "eligibility_tracker.html#errors-that-needs-fix",
     "title": "HARD Eligibility Tracker",
     "section": "Errors that needs fix",
-    "text": "Errors that needs fix\n\n\n\n\n\n\n\n\n\n\n\n\n\nrow_number\ntimestamp\npractice_date\npractice_type\ncoach\nleague_skaters\n\n\n\n\n360\n2023-11-29\n2923-11-29\nLeague Skills (Wednesdays 6pm - 8pm)\nMo\nAllBuckedUp, Glitter Bomb, Little Evil, Mini-Fridge, Mo U. Down, Novacaine, Sun-plow-her\n\n\n498\n2024-04-10\n2025-04-10\n(LGE) League Skills\nMo\n\n\n\n587\n2024-05-27\n2924-05-23\n(STAR) All Stars\nMo\n\n\n\n594\n2024-05-30\n2924-05-30\n(STAR) All Stars\nNo/tko\n\n\n\n\n\n\n\nRemoving the rows with error from the data."
+    "text": "Errors that needs fix\n\n\n\n\n\n\n\n\n\n\n\n\n\nrow_number\ntimestamp\npractice_date\npractice_type\ncoach\nleague_skaters\n\n\n\n\n360\n2023-11-29\n2923-11-29\nLeague Skills (Wednesdays 6pm - 8pm)\nMo\nAllBuckedUp, Glitter Bomb, Little Evil, Mini-Fridge, Mo U. Down, Novacaine, Sun-plow-her\n\n\n498\n2024-04-10\n2025-04-10\n(LGE) League Skills\nMo\n\n\n\n587\n2024-05-27\n2924-05-23\n(STAR) All Stars\nMo\n\n\n\n594\n2024-05-30\n2924-05-30\n(STAR) All Stars\nNo/tko\n\n\n\n684\n2024-07-18\n2025-07-11\n(DI) Drop in practice with another League\nMultiple\n\n\n\n\n\n\n\nRemoving the rows with error from the data."
   },
   {
     "objectID": "eligibility_tracker.html#plot",
