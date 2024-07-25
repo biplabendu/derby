@@ -11,7 +11,13 @@ comments:
 
 ```{r}
 library(dplyr)
-dttm <- Sys.Date()
+
+dttm <- Sys.time() |> 
+  .POSIXct("MST") |> 
+  format("%Y-%m-%d %H:%M %Z")
+
+today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
+
 meta <- read.csv(
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vThN94KzaEV4gk9lICkn7HnOJTAPtTDQuDypir_pxXMzwi7oGxgBbM21gVx6vjHoz-KZV2Jl0kHIhvm/pub?gid=1566653249&single=true&output=csv"
 ) |> 
@@ -32,7 +38,7 @@ ___
 # Opponent: Beaters 
 
 ```{r}
-days2go <- (meta[1,]$end - Sys.Date()) |> 
+days2go <- (meta[1,]$end - today) |> 
   as.numeric("days")
 ```
 
@@ -62,7 +68,7 @@ ___
 # Tournament: Monsoon Madness
 
 ```{r}
-days2go <- (meta[2,]$end - Sys.Date()) |> 
+days2go <- (meta[2,]$end - today) |> 
   as.numeric("days")
 ```
 

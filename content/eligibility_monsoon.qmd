@@ -10,7 +10,9 @@ comments:
 ---
 
 ```{r params}
-dttm <- Sys.Date()
+dttm <- Sys.time() |> 
+  .POSIXct("MST") |> 
+  format("%Y-%m-%d %H:%M %Z")
 
 # Set which game
 which_game = "Monsoon_madness"
@@ -135,6 +137,8 @@ tdat[["practice"]] <- dat[["practice"]] |>
   )
 ```
 
+::: {.callout-warning collapse=true}
+
 ## Errors that needs fix
 
 ```{r}
@@ -172,10 +176,13 @@ tdat[["practice"]] |>
   kableExtra::kable()
 ```
 
+:::
+
 > Removing the rows with error from the data, and only looking at data for the pre-defined eligibility period:
 
+
 - Eligibiliy start date: `r meta$start`
-- Eligibility end date: `r meta$start`
+- Eligibility end date: `r meta$end`
 
 # Practice Credit
 

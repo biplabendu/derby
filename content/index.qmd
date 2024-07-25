@@ -3,7 +3,9 @@ title: "Statistics for Roller Derby"
 ---
 
 ```{r}
-dttm <- Sys.Date()
+dttm <- Sys.time() |> 
+  .POSIXct("MST") |> 
+  format("%Y-%m-%d %H:%M %Z")
 ```
 
 
@@ -12,5 +14,7 @@ Last updated on `r dttm`.
 ---
 
 This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.
+
+The [Eligibility](eligibility_tracker.html) tab monitors eligibility of players for an upcoming game.
 
 For questions, please contact us [via email](contact.qmd).
