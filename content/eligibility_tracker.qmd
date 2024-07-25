@@ -38,16 +38,24 @@ days2go <- (meta[1,]$end - Sys.Date()) |>
 
 > Eligibility closes in `r days2go` days.
 
+Check eligibility [here](eligibility_beaters.html)
+
 Eligibility criteria:
 
 ```{r}
 meta |> 
   slice(1) |> 
-  kableExtra::kable()
+  select(
+    - game
+  ) |> 
+  kableExtra::kable(
+    table.attr = 'data-quarto-disable-processing="true"'
+  ) %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("basic", "hover"), 
+    full_width = FALSE
+  )
 ```
-
-
-Check eligibility [here](eligibility_beaters.html)
 
 ___
 
@@ -60,12 +68,22 @@ days2go <- (meta[2,]$end - Sys.Date()) |>
 
 > Eligibility closes in `r days2go` days.
 
+Check eligibility [here](eligibility_monsoon.html)
+
 Eligibility criteria:
 
 ```{r}
 meta |> 
   slice(2) |> 
-  kableExtra::kable()
+  select(
+    - game
+  ) |> 
+  kableExtra::kable(
+    table.attr = 'data-quarto-disable-processing="true"'
+  ) %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("basic", "hover"), 
+    full_width = FALSE
+  )
 ```
 
-Check eligibility [here](eligibility_monsoon.html)
