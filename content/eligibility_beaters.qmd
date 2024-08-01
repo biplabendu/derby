@@ -198,7 +198,7 @@ foo <- tdat[["practice"]] |>
   ) |>
   tidyr::unite(
     "player",
-    c(off_skates, in_attendance),
+    c(in_attendance),
     sep = ", ",
     remove = FALSE
   ) |>  
