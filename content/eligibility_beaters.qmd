@@ -10,14 +10,18 @@ comments:
 ---
 
 ```{r params}
-dttm <- Sys.Date()
+dttm <- Sys.time() |> 
+  .POSIXct("MST") |> 
+  format("%Y-%m-%d %H:%M %Z")
+
+today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
 
 # Set which game
 which_game = "Beaters"
 ```
 
 
-Last updated on `r dttm`.
+Last updated on `r today`.
 
 ```{r}
 library(dplyr)
@@ -140,8 +144,7 @@ tdat[["practice"]] <- dat[["practice"]] |>
 ## Errors that needs fix
 
 ```{r}
-
-tdat[["practice"]] |> 
+foo <- tdat[["practice"]] |> 
   filter(
     error
   ) |> 
@@ -171,8 +174,14 @@ tdat[["practice"]] |>
   relocate(
     row_number,
     .before = 1
-  ) |> 
-  kableExtra::kable()
+  )
+
+if (nrow(foo) > 0) {
+  foo |> 
+    kableExtra::kable()
+} else {
+  cat("None found. Good job people!")
+}
 ```
 
 :::
@@ -186,7 +195,7 @@ tdat[["practice"]] |>
 # Practice Credit
 
 ```{r}
-foo <- tdat[["practice"]] |>
+dat_practice <- tdat[["practice"]] |>
   filter(
     p_date <= meta$end
   ) |> 
@@ -201,7 +210,7 @@ foo <- tdat[["practice"]] |>
     c(off_skates, in_attendance),
     sep = ", ",
     remove = FALSE
-  ) |>  
+  ) |> 
   tidyr::separate_longer_delim(
     player,
     delim = ", "
@@ -209,6 +218,52 @@ foo <- tdat[["practice"]] |>
   filter(
     player != "NA"
   ) |> 
+  mutate(
+    player = tolower(trimws(player)),
+    player = case_when(
+      stringr::str_detect(player, "mini") ~ "mini fridge",
+      stringr::str_detect(player, "toxic") ~ "gin n. toxic",
+      stringr::str_detect(player, "beaver") ~ "eager beaver",
+      .default = player
+    )
+  ) |> 
+  distinct()
+
+# foo <- dat_practice |>
+#   group_by(
+#     p_date,
+#     p_type,
+#     player
+#   ) |>
+#   mutate(
+#     n = n()
+#   ) |>
+#   ungroup() |>
+#   arrange(desc(n), player) |>
+#   # filter(n > 1) |> View()
+#   rowwise() |>
+#   mutate(
+#     off_skates = if_else(
+#       tolower(off_skates) == "na",
+#       NA,
+#       off_skates
+#     ),
+#     duplicate = if_else(
+#       stringr::str_detect(
+#         tolower(in_attendance),
+#         tolower(player)
+#       ) &
+#         # !is.na(off_skates) &
+#         n >= 2,
+#       TRUE,
+#       FALSE
+#     )
+#   ) |>
+#   filter(
+#     duplicate
+#   )
+
+foo <- dat_practice |> 
   select(
     - in_attendance,
     - off_skates
@@ -253,54 +308,68 @@ foo <- tdat[["practice"]] |>
   mutate(
     credit_pop = 1*dur_pop,
     credit_osw = 0.5*dur_osw,
+    credit_bw  = if_else(
+      p_type2 == "bw",
+      1,
+      0
+    ),
     credit_other = case_when(
       p_type2 == "lge" ~ 1,
       p_type2 == "star" ~ 1,
       p_type2 == "lm" ~ 1,
       p_type2 == "di" ~ 1,
-      p_type2 == "bw" ~ 1,
       p_type2 == "fmc" ~ 1,
       .default = 0
     )
   )
 
-bar <- foo |> 
-  # mutate_all(as.factor) |> summary()
+
+bar <- foo |>
+# foo |> 
+  group_by(
+    player
+  ) |> 
+  reframe(
+    credit_pop = sum(credit_pop, na.rm = TRUE),
+    credit_osw = sum(credit_osw, na.rm = TRUE),
+    credit_bw = sum(credit_bw, na.rm = TRUE),
+    credit_other = sum(credit_other, na.rm = TRUE)
+  ) |> 
+  # set limits on `bw` and `osw`
   mutate(
-    credit_total = rowSums(
+    credit_osw = if_else(credit_osw > 2, 2, credit_osw),
+    credit_bw = if_else(credit_bw > 1, 1, credit_bw)
+  ) |>
+  mutate(
+    credit_current = rowSums(
       across(
         matches("credit")
       )
     )
   ) |> 
-  mutate(
-    player = tolower(trimws(player)),
-    player = case_when(
-      stringr::str_detect(player, "mini") ~ "mini fridge",
-      stringr::str_detect(player, "toxic") ~ "gin n. toxic",
-      stringr::str_detect(player, "beaver") ~ "eager beaver",
-      .default = player
-    )
-  ) |> 
-  group_by(
-    player
-  ) |> 
-  reframe(
-    credit_current = sum(credit_total)
-  ) |> 
   arrange(
     desc(credit_current)
-  ) |> 
-  mutate(
-    credit_reqd = meta$practice_credit_req,
-    perc_completed = round(
-      credit_current/credit_reqd*100,
-      0
-    ) |> 
-      paste(" %")
   )
 
 bar |> 
+  mutate(
+    credit_reqd = meta$practice_credit_req,
+    status = if_else(
+      credit_current >= credit_reqd,
+      "Complete",
+      paste(
+        round(abs(credit_current - credit_reqd), 1),
+        " reqd"
+      )
+    )
+  ) |> 
+  select(
+    player,
+    status,
+    `Credit Total` = credit_current,
+    `Bout Watch` = credit_bw,
+    `Off Skates` = credit_osw
+  ) |> 
   DT::datatable()
 ```
 
@@ -372,6 +441,8 @@ bar |>
 ```
 
 # Volunteer Hours
+
+> Required hours: `r meta$volunteer_hr_req` hrs
 
 ```{r}
 volunteer <- dat[[2]] |> 
@@ -482,6 +553,7 @@ volunteer |>
     desc(month_year)
   ) |> 
   select(
+    - month,
     - month_year,
     - year
   ) |> 
@@ -491,11 +563,18 @@ volunteer |>
       total_hrs >= hrs_reqd,
       "Complete",
       paste(
-        round(total_hrs - hrs_reqd, 1),
+        round(abs(total_hrs - hrs_reqd), 1),
         "h reqd"
       )
     ),
     .before = volunteer_hrs
+  ) |> 
+  select(
+    player,
+    status,
+    volunteer_hrs,
+    purchased_hrs,
+    rollover_hrs
   ) |> 
   DT::datatable(
     caption = glue::glue(

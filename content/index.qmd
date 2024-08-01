@@ -6,10 +6,12 @@ title: "Statistics for Roller Derby"
 dttm <- Sys.time() |> 
   .POSIXct("MST") |> 
   format("%Y-%m-%d %H:%M %Z")
+
+today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
 ```
 
 
-Last updated on `r dttm`.
+Last updated on `r today`.
 
 ---
 
