@@ -157,7 +157,8 @@ tdat[["practice"]] |>
         1:4, 6
       ) |> 
       mutate(
-        row_number = 1:n()
+        row_number = 1:n(),
+        row_number = row_number + 1
       ) |> 
       mutate(
         timestamp = lubridate::mdy_hms(timestamp) |>
