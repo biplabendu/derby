@@ -1,5 +1,5 @@
 ---
-title: "HARD Eligibility Tracker (vs. Beaters)"
+title: "HARD Eligibility Tracker (Wild West Skatedown)"
 reference-location: margin
 citation-location: margin
 editor_options: 
@@ -17,7 +17,7 @@ dttm <- Sys.time() |>
 today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
 
 # Set which game
-which_game = "Beaters"
+which_game = "Wild_west"
 ```
 
 
@@ -324,8 +324,7 @@ foo <- dat_practice |>
   )
 
 
-bar <- foo |>
-# foo |> 
+bar <- foo |> 
   group_by(
     player
   ) |> 
@@ -339,7 +338,7 @@ bar <- foo |>
   mutate(
     credit_osw = if_else(credit_osw > 2, 2, credit_osw),
     credit_bw = if_else(credit_bw > 1, 1, credit_bw)
-  ) |>
+  ) |> 
   mutate(
     credit_current = rowSums(
       across(
@@ -424,7 +423,7 @@ bar |>
   labs(
     title = "Practice credits",
     x = "",
-    y = "Credits after 6/22/2024"
+    y = paste0("Credits since ", meta[4,2])
   ) +
   scale_fill_manual(
     values = c(
