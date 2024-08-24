@@ -49,7 +49,7 @@ scores_firsthalf <- purrr::map(
   function(x) {
     readxl::read_excel(
       x,
-      sheet = 3,
+      sheet = "Score",
       range = "A3:AK41",
       col_types = "text",
       # skip = 2,
@@ -64,7 +64,7 @@ scores_secondhalf <- purrr::map(
   function(x) {
     readxl::read_excel(
       x,
-      sheet = 3,
+      sheet = "Score",
       range = "A45:AK83",
       col_types = "text",
       # skip = 2,
