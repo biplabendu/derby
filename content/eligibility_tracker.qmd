@@ -95,6 +95,65 @@ meta |>
 
 ___
 
+# Opponent: Salt Lake City
+
+```{r}
+days2go <- (meta[5,]$end - today) |> 
+  as.numeric("days")
+```
+
+> Eligibility closes in `r days2go` days.
+
+Check eligibility [here](eligibility_saltlakecity.html)
+
+Eligibility criteria:
+
+```{r}
+meta |> 
+  slice(5) |> 
+  select(
+    - game
+  ) |> 
+  kableExtra::kable(
+    table.attr = 'data-quarto-disable-processing="true"'
+  ) %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("basic", "hover"), 
+    full_width = FALSE
+  )
+```
+___
+
+# Opponent: SRP
+
+```{r}
+days2go <- (meta[6,]$end - today) |> 
+  as.numeric("days")
+```
+
+> Eligibility closes in `r days2go` days.
+
+Check eligibility [here](eligibility_srp.html)
+
+Eligibility criteria:
+
+```{r}
+meta |> 
+  slice(6) |> 
+  select(
+    - game
+  ) |> 
+  kableExtra::kable(
+    table.attr = 'data-quarto-disable-processing="true"'
+  ) %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("basic", "hover"), 
+    full_width = FALSE
+  )
+```
+
+___
+
 # Tournament: Monsoon Madness
 
 ```{r}
