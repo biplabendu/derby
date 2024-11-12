@@ -33,24 +33,25 @@ meta <- read.csv(
 
 Last updated on `r dttm`.
 
+
 ___
 
-# Opponent: Los Alamos
+# HARD: CowboysAliens
 
 ```{r}
-days2go <- (meta[3,]$end - today) |> 
+days2go <- (meta[7,]$end - today) |> 
   as.numeric("days")
 ```
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_alamos.html)
+Check eligibility [here](eligibility_CowboysAliens.html)
 
 Eligibility criteria:
 
 ```{r}
 meta |> 
-  slice(3) |> 
+  slice(7) |> 
   select(
     - game
   ) |> 
@@ -65,120 +66,150 @@ meta |>
 
 ___
 
-# Tournament: Wild West
+<!-- # Opponent: Los Alamos -->
 
-```{r}
-days2go <- (meta[4,]$end - today) |> 
-  as.numeric("days")
-```
+<!-- ```{r} -->
+<!-- days2go <- (meta[3,]$end - today) |>  -->
+<!--   as.numeric("days") -->
+<!-- ``` -->
 
-> Eligibility closes in `r days2go` days.
+<!-- > Eligibility closes in `r days2go` days. -->
 
-Check eligibility [here](eligibility_wildwest.html)
+<!-- Check eligibility [here](eligibility_alamos.html) -->
 
-Eligibility criteria:
+<!-- Eligibility criteria: -->
 
-```{r}
-meta |> 
-  slice(4) |> 
-  select(
-    - game
-  ) |> 
-  kableExtra::kable(
-    table.attr = 'data-quarto-disable-processing="true"'
-  ) %>% 
-  kableExtra::kable_styling(
-    bootstrap_options = c("basic", "hover"), 
-    full_width = FALSE
-  )
-```
+<!-- ```{r} -->
+<!-- meta |>  -->
+<!--   slice(3) |>  -->
+<!--   select( -->
+<!--     - game -->
+<!--   ) |>  -->
+<!--   kableExtra::kable( -->
+<!--     table.attr = 'data-quarto-disable-processing="true"' -->
+<!--   ) %>%  -->
+<!--   kableExtra::kable_styling( -->
+<!--     bootstrap_options = c("basic", "hover"),  -->
+<!--     full_width = FALSE -->
+<!--   ) -->
+<!-- ``` -->
 
-___
+<!-- ___ -->
 
-# Opponent: Salt Lake City
+<!-- # Tournament: Wild West -->
 
-```{r}
-days2go <- (meta[5,]$end - today) |> 
-  as.numeric("days")
-```
+<!-- ```{r} -->
+<!-- days2go <- (meta[4,]$end - today) |>  -->
+<!--   as.numeric("days") -->
+<!-- ``` -->
 
-> Eligibility closes in `r days2go` days.
+<!-- > Eligibility closes in `r days2go` days. -->
 
-Check eligibility [here](eligibility_saltlakecity.html)
+<!-- Check eligibility [here](eligibility_wildwest.html) -->
 
-Eligibility criteria:
+<!-- Eligibility criteria: -->
 
-```{r}
-meta |> 
-  slice(5) |> 
-  select(
-    - game
-  ) |> 
-  kableExtra::kable(
-    table.attr = 'data-quarto-disable-processing="true"'
-  ) %>% 
-  kableExtra::kable_styling(
-    bootstrap_options = c("basic", "hover"), 
-    full_width = FALSE
-  )
-```
-___
+<!-- ```{r} -->
+<!-- meta |>  -->
+<!--   slice(4) |>  -->
+<!--   select( -->
+<!--     - game -->
+<!--   ) |>  -->
+<!--   kableExtra::kable( -->
+<!--     table.attr = 'data-quarto-disable-processing="true"' -->
+<!--   ) %>%  -->
+<!--   kableExtra::kable_styling( -->
+<!--     bootstrap_options = c("basic", "hover"),  -->
+<!--     full_width = FALSE -->
+<!--   ) -->
+<!-- ``` -->
 
-# Opponent: SRP
+<!-- ___ -->
 
-```{r}
-days2go <- (meta[6,]$end - today) |> 
-  as.numeric("days")
-```
+<!-- # Opponent: Salt Lake City -->
 
-> Eligibility closes in `r days2go` days.
+<!-- ```{r} -->
+<!-- days2go <- (meta[5,]$end - today) |>  -->
+<!--   as.numeric("days") -->
+<!-- ``` -->
 
-Check eligibility [here](eligibility_srp.html)
+<!-- > Eligibility closes in `r days2go` days. -->
 
-Eligibility criteria:
+<!-- Check eligibility [here](eligibility_saltlakecity.html) -->
 
-```{r}
-meta |> 
-  slice(6) |> 
-  select(
-    - game
-  ) |> 
-  kableExtra::kable(
-    table.attr = 'data-quarto-disable-processing="true"'
-  ) %>% 
-  kableExtra::kable_styling(
-    bootstrap_options = c("basic", "hover"), 
-    full_width = FALSE
-  )
-```
+<!-- Eligibility criteria: -->
 
-___
+<!-- ```{r} -->
+<!-- meta |>  -->
+<!--   slice(5) |>  -->
+<!--   select( -->
+<!--     - game -->
+<!--   ) |>  -->
+<!--   kableExtra::kable( -->
+<!--     table.attr = 'data-quarto-disable-processing="true"' -->
+<!--   ) %>%  -->
+<!--   kableExtra::kable_styling( -->
+<!--     bootstrap_options = c("basic", "hover"),  -->
+<!--     full_width = FALSE -->
+<!--   ) -->
+<!-- ``` -->
+<!-- ___ -->
 
-# Tournament: Monsoon Madness
+<!-- # Opponent: SRP -->
 
-```{r}
-days2go <- (meta[2,]$end - today) |> 
-  as.numeric("days")
-```
+<!-- ```{r} -->
+<!-- days2go <- (meta[6,]$end - today) |>  -->
+<!--   as.numeric("days") -->
+<!-- ``` -->
 
-> Eligibility closes in `r days2go` days.
+<!-- > Eligibility closes in `r days2go` days. -->
 
-Check eligibility [here](eligibility_monsoon.html)
+<!-- Check eligibility [here](eligibility_srp.html) -->
 
-Eligibility criteria:
+<!-- Eligibility criteria: -->
 
-```{r}
-meta |> 
-  slice(2) |> 
-  select(
-    - game
-  ) |> 
-  kableExtra::kable(
-    table.attr = 'data-quarto-disable-processing="true"'
-  ) %>% 
-  kableExtra::kable_styling(
-    bootstrap_options = c("basic", "hover"), 
-    full_width = FALSE
-  )
-```
+<!-- ```{r} -->
+<!-- meta |>  -->
+<!--   slice(6) |>  -->
+<!--   select( -->
+<!--     - game -->
+<!--   ) |>  -->
+<!--   kableExtra::kable( -->
+<!--     table.attr = 'data-quarto-disable-processing="true"' -->
+<!--   ) %>%  -->
+<!--   kableExtra::kable_styling( -->
+<!--     bootstrap_options = c("basic", "hover"),  -->
+<!--     full_width = FALSE -->
+<!--   ) -->
+<!-- ``` -->
+
+<!-- ___ -->
+
+<!-- # Tournament: Monsoon Madness -->
+
+<!-- ```{r} -->
+<!-- days2go <- (meta[2,]$end - today) |>  -->
+<!--   as.numeric("days") -->
+<!-- ``` -->
+
+<!-- > Eligibility closes in `r days2go` days. -->
+
+<!-- Check eligibility [here](eligibility_monsoon.html) -->
+
+<!-- Eligibility criteria: -->
+
+<!-- ```{r} -->
+<!-- meta |>  -->
+<!--   slice(2) |>  -->
+<!--   select( -->
+<!--     - game -->
+<!--   ) |>  -->
+<!--   kableExtra::kable( -->
+<!--     table.attr = 'data-quarto-disable-processing="true"' -->
+<!--   ) %>%  -->
+<!--   kableExtra::kable_styling( -->
+<!--     bootstrap_options = c("basic", "hover"),  -->
+<!--     full_width = FALSE -->
+<!--   ) -->
+<!-- ``` -->
 
