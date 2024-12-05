@@ -32,7 +32,35 @@ meta <- read.csv(
 
 
 Last updated on `r dttm`.
+___
 
+# HARD: Charity bout
+
+```{r}
+days2go <- (meta[8,]$end - today) |> 
+  as.numeric("days")
+```
+
+> Eligibility closes in `r days2go` days.
+
+Check eligibility [here](eligibility_Charity.html)
+
+Eligibility criteria:
+
+```{r}
+meta |> 
+  slice(8) |> 
+  select(
+    - game
+  ) |> 
+  kableExtra::kable(
+    table.attr = 'data-quarto-disable-processing="true"'
+  ) %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("basic", "hover"), 
+    full_width = FALSE
+  )
+```
 
 ___
 
