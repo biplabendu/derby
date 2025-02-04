@@ -1,5 +1,5 @@
 ---
-title: "HARD Eligibility Tracker"
+title: "Starlets Eligibility Tracker"
 reference-location: margin
 citation-location: margin
 editor_options: 
@@ -34,22 +34,22 @@ meta <- read.csv(
 Last updated on `r dttm`.
 ___
 
-# HARD: Charity bout
+# Starlets: NAZRD
 
 ```{r}
-days2go <- (meta[8,]$end - today) |> 
+days2go <- (meta[9,]$end - today) |> 
   as.numeric("days")
 ```
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_Charity.html)
+Check eligibility [here](eligibility_nazrd.html)
 
 Eligibility criteria:
 
 ```{r}
 meta |> 
-  slice(8) |> 
+  slice(9) |> 
   select(
     - game
   ) |> 
@@ -64,22 +64,22 @@ meta |>
 
 ___
 
-# HARD: CowboysAliens
+# Starlets: AZRD
 
 ```{r}
-days2go <- (meta[7,]$end - today) |> 
+days2go <- (meta[10,]$end - today) |> 
   as.numeric("days")
 ```
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_CowboysAliens.html)
+Check eligibility [here](eligibility_azrd.html)
 
 Eligibility criteria:
 
 ```{r}
 meta |> 
-  slice(7) |> 
+  slice(10) |> 
   select(
     - game
   ) |> 
