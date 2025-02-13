@@ -1,80 +1,10 @@
 [
   {
-    "objectID": "eligibility_wildwest.html",
-    "href": "eligibility_wildwest.html",
-    "title": "HARD Eligibility Tracker (Wild West Skatedown)",
-    "section": "",
-    "text": "Last updated on 2025-02-11."
-  },
-  {
-    "objectID": "eligibility_wildwest.html#plot",
-    "href": "eligibility_wildwest.html#plot",
-    "title": "HARD Eligibility Tracker (Wild West Skatedown)",
-    "section": "Plot",
-    "text": "Plot"
-  },
-  {
-    "objectID": "eligibility_tracker.html",
-    "href": "eligibility_tracker.html",
-    "title": "Starlets Eligibility Tracker",
-    "section": "",
-    "text": "Last updated on 2025-02-11 23:48 MST. ___\n\nStarlets: NAZRD\n\nEligibility closes in 4 days.\n\nCheck eligibility here\nEligibility criteria:\n\n\n\n\n\nstart\nend\npractice_credit_req\nvolunteer_month\nvolunteer_hr_req\n\n\n\n\n2025-01-18\n2025-02-15\n10\nJanuary\n8\n\n\n\n\n\n\n\n\n\n\nStarlets: AZRD\n\nEligibility closes in 11 days.\n\nCheck eligibility here\nEligibility criteria:\n\n\n\n\n\nstart\nend\npractice_credit_req\nvolunteer_month\nvolunteer_hr_req\n\n\n\n\n2025-01-25\n2025-02-22\n10\nJanuary\n8"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistics for Roller Derby",
-    "section": "",
-    "text": "Last updated on 2025-02-11.\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nThe Eligibility tab monitors eligibility of players for an upcoming game.\nFor questions, please contact us via email."
-  },
-  {
-    "objectID": "eligibility_nazrd.html",
-    "href": "eligibility_nazrd.html",
-    "title": "HARD Eligibility Tracker (NAZRD)",
-    "section": "",
-    "text": "Last updated on 2025-02-11."
-  },
-  {
-    "objectID": "eligibility_nazrd.html#plot",
-    "href": "eligibility_nazrd.html#plot",
-    "title": "HARD Eligibility Tracker (NAZRD)",
-    "section": "Plot",
-    "text": "Plot"
-  },
-  {
-    "objectID": "statsbook/scoreboard1.html",
-    "href": "statsbook/scoreboard1.html",
-    "title": "Scoreboard",
-    "section": "",
-    "text": "Team scores over the course of the game\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
-  },
-  {
-    "objectID": "statsbook/jammer1.html",
-    "href": "statsbook/jammer1.html",
-    "title": "Jammer Statistics",
-    "section": "",
-    "text": "Jammer statistics over the course of the game\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams started by a jammer, either on track or in the box.\nn_points_per_jam: number of points scored by the player per jam. Bigger numbers are better.\nprop_leads: proportion of jams in which the jammer obtained lead. Bigger numbers are better.\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
-  },
-  {
-    "objectID": "eligibility_azrd.html",
-    "href": "eligibility_azrd.html",
-    "title": "HARD Eligibility Tracker (AZRD)",
-    "section": "",
-    "text": "Last updated on 2025-02-11."
-  },
-  {
-    "objectID": "eligibility_azrd.html#plot",
-    "href": "eligibility_azrd.html#plot",
-    "title": "HARD Eligibility Tracker (AZRD)",
-    "section": "Plot",
-    "text": "Plot"
-  },
-  {
     "objectID": "eligibility_CowboysAliens.html",
     "href": "eligibility_CowboysAliens.html",
     "title": "HARD Eligibility Tracker (CowboysAliens)",
     "section": "",
-    "text": "Last updated on 2025-02-11."
+    "text": "Last updated on 2025-02-12."
   },
   {
     "objectID": "eligibility_CowboysAliens.html#plot",
@@ -84,30 +14,16 @@
     "text": "Plot"
   },
   {
-    "objectID": "eligibility_Charity.html",
-    "href": "eligibility_Charity.html",
-    "title": "HARD Eligibility Tracker (Charity bout)",
+    "objectID": "eligibility_nazrd.html",
+    "href": "eligibility_nazrd.html",
+    "title": "HARD Eligibility Tracker (NAZRD)",
     "section": "",
-    "text": "Last updated on 2025-02-11."
+    "text": "Last updated on 2025-02-12."
   },
   {
-    "objectID": "eligibility_Charity.html#plot",
-    "href": "eligibility_Charity.html#plot",
-    "title": "HARD Eligibility Tracker (Charity bout)",
-    "section": "Plot",
-    "text": "Plot"
-  },
-  {
-    "objectID": "eligibility_saltlakecity.html",
-    "href": "eligibility_saltlakecity.html",
-    "title": "HARD Eligibility Tracker (Salt Lake City)",
-    "section": "",
-    "text": "Last updated on 2025-02-11."
-  },
-  {
-    "objectID": "eligibility_saltlakecity.html#plot",
-    "href": "eligibility_saltlakecity.html#plot",
-    "title": "HARD Eligibility Tracker (Salt Lake City)",
+    "objectID": "eligibility_nazrd.html#plot",
+    "href": "eligibility_nazrd.html#plot",
+    "title": "HARD Eligibility Tracker (NAZRD)",
     "section": "Plot",
     "text": "Plot"
   },
@@ -119,11 +35,32 @@
     "text": "Blocker statistics over the course of the game\n\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams in which a blocker/pivot was involved in, either on track or in the box.\nn_points_against_per_jam: number of points scored against a player per jam. Smaller numbers are better.\n\nn_points_against_per_jam = number of points scored in all jams that a blocker/pivot is involved in (either on track or in the box) divided by n_jams\n\nprop_box_per_jam: proportion of jams in which a blocker/pivot sat in the box. Smaller numbers are better.\nprop_jams_smallwall: proportion of jams in which a blocker/pivot was part of a smaller wall (less than 4). Smaller numbers are better.\n\n\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
   },
   {
+    "objectID": "eligibility_alamos.html",
+    "href": "eligibility_alamos.html",
+    "title": "HARD Eligibility Tracker (Los Alamos)",
+    "section": "",
+    "text": "Last updated on 2025-02-12."
+  },
+  {
+    "objectID": "eligibility_alamos.html#plot",
+    "href": "eligibility_alamos.html#plot",
+    "title": "HARD Eligibility Tracker (Los Alamos)",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistics for Roller Derby",
+    "section": "",
+    "text": "Last updated on 2025-02-12.\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nThe Eligibility tab monitors eligibility of players for an upcoming game.\nFor questions, please contact us via email."
+  },
+  {
     "objectID": "eligibility_monsoon.html",
     "href": "eligibility_monsoon.html",
     "title": "HARD Eligibility Tracker (Monsoon Madness)",
     "section": "",
-    "text": "Last updated on 2025-02-11."
+    "text": "Last updated on 2025-02-12."
   },
   {
     "objectID": "eligibility_monsoon.html#plot",
@@ -133,18 +70,39 @@
     "text": "Plot"
   },
   {
-    "objectID": "eligibility_srp.html",
-    "href": "eligibility_srp.html",
-    "title": "HARD Eligibility Tracker (SRP)",
+    "objectID": "eligibility_saltlakecity.html",
+    "href": "eligibility_saltlakecity.html",
+    "title": "HARD Eligibility Tracker (Salt Lake City)",
     "section": "",
-    "text": "Last updated on 2025-02-11."
+    "text": "Last updated on 2025-02-12."
   },
   {
-    "objectID": "eligibility_srp.html#plot",
-    "href": "eligibility_srp.html#plot",
-    "title": "HARD Eligibility Tracker (SRP)",
+    "objectID": "eligibility_saltlakecity.html#plot",
+    "href": "eligibility_saltlakecity.html#plot",
+    "title": "HARD Eligibility Tracker (Salt Lake City)",
     "section": "Plot",
     "text": "Plot"
+  },
+  {
+    "objectID": "eligibility_azrd.html",
+    "href": "eligibility_azrd.html",
+    "title": "HARD Eligibility Tracker (AZRD)",
+    "section": "",
+    "text": "Last updated on 2025-02-12."
+  },
+  {
+    "objectID": "eligibility_azrd.html#plot",
+    "href": "eligibility_azrd.html#plot",
+    "title": "HARD Eligibility Tracker (AZRD)",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "eligibility_tracker.html",
+    "href": "eligibility_tracker.html",
+    "title": "Starlets Eligibility Tracker",
+    "section": "",
+    "text": "Last updated on 2025-02-12 23:46 MST. ___\n\nStarlets: NAZRD\n\nEligibility closes in 3 days.\n\nCheck eligibility here\nEligibility criteria:\n\n\n\n\n\nstart\nend\npractice_credit_req\nvolunteer_month\nvolunteer_hr_req\n\n\n\n\n2025-01-18\n2025-02-15\n10\nJanuary\n8\n\n\n\n\n\n\n\n\n\n\nStarlets: AZRD\n\nEligibility closes in 10 days.\n\nCheck eligibility here\nEligibility criteria:\n\n\n\n\n\nstart\nend\npractice_credit_req\nvolunteer_month\nvolunteer_hr_req\n\n\n\n\n2025-01-25\n2025-02-22\n10\nJanuary\n8"
   },
   {
     "objectID": "contact.html",
@@ -154,16 +112,58 @@
     "text": "Biplabendu (Billu) Das\nbiplabendu.das@gmail.com\nhttps://biplabendu.github.io/homepage/"
   },
   {
-    "objectID": "eligibility_alamos.html",
-    "href": "eligibility_alamos.html",
-    "title": "HARD Eligibility Tracker (Los Alamos)",
+    "objectID": "eligibility_Charity.html",
+    "href": "eligibility_Charity.html",
+    "title": "HARD Eligibility Tracker (Charity bout)",
     "section": "",
-    "text": "Last updated on 2025-02-11."
+    "text": "Last updated on 2025-02-12."
   },
   {
-    "objectID": "eligibility_alamos.html#plot",
-    "href": "eligibility_alamos.html#plot",
-    "title": "HARD Eligibility Tracker (Los Alamos)",
+    "objectID": "eligibility_Charity.html#plot",
+    "href": "eligibility_Charity.html#plot",
+    "title": "HARD Eligibility Tracker (Charity bout)",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "eligibility_srp.html",
+    "href": "eligibility_srp.html",
+    "title": "HARD Eligibility Tracker (SRP)",
+    "section": "",
+    "text": "Last updated on 2025-02-12."
+  },
+  {
+    "objectID": "eligibility_srp.html#plot",
+    "href": "eligibility_srp.html#plot",
+    "title": "HARD Eligibility Tracker (SRP)",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "statsbook/jammer1.html",
+    "href": "statsbook/jammer1.html",
+    "title": "Jammer Statistics",
+    "section": "",
+    "text": "Jammer statistics over the course of the game\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams started by a jammer, either on track or in the box.\nn_points_per_jam: number of points scored by the player per jam. Bigger numbers are better.\nprop_leads: proportion of jams in which the jammer obtained lead. Bigger numbers are better.\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
+  },
+  {
+    "objectID": "statsbook/scoreboard1.html",
+    "href": "statsbook/scoreboard1.html",
+    "title": "Scoreboard",
+    "section": "",
+    "text": "Team scores over the course of the game\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
+  },
+  {
+    "objectID": "eligibility_wildwest.html",
+    "href": "eligibility_wildwest.html",
+    "title": "HARD Eligibility Tracker (Wild West Skatedown)",
+    "section": "",
+    "text": "Last updated on 2025-02-12."
+  },
+  {
+    "objectID": "eligibility_wildwest.html#plot",
+    "href": "eligibility_wildwest.html#plot",
+    "title": "HARD Eligibility Tracker (Wild West Skatedown)",
     "section": "Plot",
     "text": "Plot"
   }
