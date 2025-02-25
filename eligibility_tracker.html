@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Starlets Eligibility Tracker</title>
+<title>Eligibility Tracker</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -5014,6 +5014,8 @@ border: 0;
   <ul>
   <li><a href="#starlets-nazrd" id="toc-starlets-nazrd" class="nav-link active" data-scroll-target="#starlets-nazrd">Starlets: NAZRD</a></li>
   <li><a href="#starlets-azrd" id="toc-starlets-azrd" class="nav-link" data-scroll-target="#starlets-azrd">Starlets: AZRD</a></li>
+  <li><a href="#starlets-sfvrd" id="toc-starlets-sfvrd" class="nav-link" data-scroll-target="#starlets-sfvrd">Starlets: SFVRD</a></li>
+  <li><a href="#hard-smashers" id="toc-hard-smashers" class="nav-link" data-scroll-target="#hard-smashers">HARD: Smashers</a></li>
   </ul>
 </nav>
 </nav>
@@ -5026,7 +5028,7 @@ border: 0;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Starlets Eligibility Tracker</h1>
+<h1 class="title">Eligibility Tracker</h1>
 </div>
 
 
@@ -5043,11 +5045,12 @@ border: 0;
 </header>
 
 
-<p>Last updated on 2025-02-23 23:48 MST. ___</p>
+<p>Last updated on 2025-02-24 22:02 MST.</p>
+<hr>
 <section id="starlets-nazrd" class="level1">
 <h1>Starlets: NAZRD</h1>
 <blockquote class="blockquote">
-<p>Eligibility closes in -8 days.</p>
+<p>Eligibility closes in -9 days.</p>
 </blockquote>
 <p>Check eligibility <a href="eligibility_nazrd.html">here</a></p>
 <p>Eligibility criteria:</p>
@@ -5082,7 +5085,7 @@ border: 0;
 <section id="starlets-azrd" class="level1">
 <h1>Starlets: AZRD</h1>
 <blockquote class="blockquote">
-<p>Eligibility closes in -1 days.</p>
+<p>Eligibility closes in -2 days.</p>
 </blockquote>
 <p>Check eligibility <a href="eligibility_azrd.html">here</a></p>
 <p>Eligibility criteria:</p>
@@ -5113,120 +5116,76 @@ border: 0;
 </div>
 </div>
 <hr>
-<!-- # Opponent: Los Alamos -->
-<!-- ```{r} -->
-<!-- days2go <- (meta[3,]$end - today) |>  -->
-<!--   as.numeric("days") -->
-<!-- ``` -->
-<!-- > Eligibility closes in -1 days. -->
-<!-- Check eligibility [here](eligibility_alamos.html) -->
-<!-- Eligibility criteria: -->
-<!-- ```{r} -->
-<!-- meta |>  -->
-<!--   slice(3) |>  -->
-<!--   select( -->
-<!--     - game -->
-<!--   ) |>  -->
-<!--   kableExtra::kable( -->
-<!--     table.attr = 'data-quarto-disable-processing="true"' -->
-<!--   ) %>%  -->
-<!--   kableExtra::kable_styling( -->
-<!--     bootstrap_options = c("basic", "hover"),  -->
-<!--     full_width = FALSE -->
-<!--   ) -->
-<!-- ``` -->
-<!-- ___ -->
-<!-- # Tournament: Wild West -->
-<!-- ```{r} -->
-<!-- days2go <- (meta[4,]$end - today) |>  -->
-<!--   as.numeric("days") -->
-<!-- ``` -->
-<!-- > Eligibility closes in -1 days. -->
-<!-- Check eligibility [here](eligibility_wildwest.html) -->
-<!-- Eligibility criteria: -->
-<!-- ```{r} -->
-<!-- meta |>  -->
-<!--   slice(4) |>  -->
-<!--   select( -->
-<!--     - game -->
-<!--   ) |>  -->
-<!--   kableExtra::kable( -->
-<!--     table.attr = 'data-quarto-disable-processing="true"' -->
-<!--   ) %>%  -->
-<!--   kableExtra::kable_styling( -->
-<!--     bootstrap_options = c("basic", "hover"),  -->
-<!--     full_width = FALSE -->
-<!--   ) -->
-<!-- ``` -->
-<!-- ___ -->
-<!-- # Opponent: Salt Lake City -->
-<!-- ```{r} -->
-<!-- days2go <- (meta[5,]$end - today) |>  -->
-<!--   as.numeric("days") -->
-<!-- ``` -->
-<!-- > Eligibility closes in -1 days. -->
-<!-- Check eligibility [here](eligibility_saltlakecity.html) -->
-<!-- Eligibility criteria: -->
-<!-- ```{r} -->
-<!-- meta |>  -->
-<!--   slice(5) |>  -->
-<!--   select( -->
-<!--     - game -->
-<!--   ) |>  -->
-<!--   kableExtra::kable( -->
-<!--     table.attr = 'data-quarto-disable-processing="true"' -->
-<!--   ) %>%  -->
-<!--   kableExtra::kable_styling( -->
-<!--     bootstrap_options = c("basic", "hover"),  -->
-<!--     full_width = FALSE -->
-<!--   ) -->
-<!-- ``` -->
-<!-- ___ -->
-<!-- # Opponent: SRP -->
-<!-- ```{r} -->
-<!-- days2go <- (meta[6,]$end - today) |>  -->
-<!--   as.numeric("days") -->
-<!-- ``` -->
-<!-- > Eligibility closes in -1 days. -->
-<!-- Check eligibility [here](eligibility_srp.html) -->
-<!-- Eligibility criteria: -->
-<!-- ```{r} -->
-<!-- meta |>  -->
-<!--   slice(6) |>  -->
-<!--   select( -->
-<!--     - game -->
-<!--   ) |>  -->
-<!--   kableExtra::kable( -->
-<!--     table.attr = 'data-quarto-disable-processing="true"' -->
-<!--   ) %>%  -->
-<!--   kableExtra::kable_styling( -->
-<!--     bootstrap_options = c("basic", "hover"),  -->
-<!--     full_width = FALSE -->
-<!--   ) -->
-<!-- ``` -->
-<!-- ___ -->
-<!-- # Tournament: Monsoon Madness -->
-<!-- ```{r} -->
-<!-- days2go <- (meta[2,]$end - today) |>  -->
-<!--   as.numeric("days") -->
-<!-- ``` -->
-<!-- > Eligibility closes in -1 days. -->
-<!-- Check eligibility [here](eligibility_monsoon.html) -->
-<!-- Eligibility criteria: -->
-<!-- ```{r} -->
-<!-- meta |>  -->
-<!--   slice(2) |>  -->
-<!--   select( -->
-<!--     - game -->
-<!--   ) |>  -->
-<!--   kableExtra::kable( -->
-<!--     table.attr = 'data-quarto-disable-processing="true"' -->
-<!--   ) %>%  -->
-<!--   kableExtra::kable_styling( -->
-<!--     bootstrap_options = c("basic", "hover"),  -->
-<!--     full_width = FALSE -->
-<!--   ) -->
-<!-- ``` -->
+</section>
+<section id="starlets-sfvrd" class="level1">
+<h1>Starlets: SFVRD</h1>
+<blockquote class="blockquote">
+<p>Eligibility closes in 26 days.</p>
+</blockquote>
+<p>Check eligibility <a href="eligibility_sfvrd.html">here</a></p>
+<p>Eligibility criteria:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-hover caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">practice_credit_req</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">volunteer_month</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">volunteer_hr_req</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2025-02-08</td>
+<td style="text-align: left;">2025-03-22</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">February</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<hr>
+</section>
+<section id="hard-smashers" class="level1">
+<h1>HARD: Smashers</h1>
+<blockquote class="blockquote">
+<p>Eligibility closes in 13 days.</p>
+</blockquote>
+<p>Check eligibility <a href="eligibility_smashers.html">here</a></p>
+<p>Eligibility criteria:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-hover caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">practice_credit_req</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">volunteer_month</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">volunteer_hr_req</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2025-02-16</td>
+<td style="text-align: left;">2025-03-09</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">February</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<hr>
 
 
 </section>
