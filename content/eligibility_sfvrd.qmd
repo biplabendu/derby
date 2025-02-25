@@ -1,5 +1,5 @@
 ---
-title: "HARD Eligibility Tracker (Salt Lake City)"
+title: "HARD Eligibility Tracker (SFVRD)"
 reference-location: margin
 citation-location: margin
 editor_options: 
@@ -17,7 +17,7 @@ dttm <- Sys.time() |>
 today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
 
 # Set which game
-which_game = "saltlakecity"
+which_game = "SFVRD"
 ```
 
 
@@ -542,7 +542,7 @@ volunteer <- dat[[2]] |>
 
 volunteer |> 
   filter(
-    year == "2024" &
+    year == "2025" &
       stringr::str_detect(
         tolower(meta$volunteer_month),
         month
