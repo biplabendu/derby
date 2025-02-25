@@ -17,7 +17,7 @@ dttm <- Sys.time() |>
 today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
 
 # Set which game
-which_game = "SFVRD"
+which_game = "sfvrd"
 ```
 
 
