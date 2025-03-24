@@ -1,7 +1,5 @@
 ---
 title: "Starlets Eligibility Tracker (Calgary)"
-=======
-
 reference-location: margin
 citation-location: margin
 editor_options: 

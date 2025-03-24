@@ -1,8 +1,5 @@
 ---
-
 title: "Starlets Eligibility Tracker (Tucson)"
-=======
-
 reference-location: margin
 citation-location: margin
 editor_options: 
