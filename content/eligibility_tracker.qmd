@@ -74,7 +74,7 @@ days2go <- (meta[14,]$end - today) |>
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_smashers.html)
+Check eligibility [here](eligibility_tucson.html)
 
 Eligibility criteria:
 
@@ -105,7 +105,7 @@ days2go <- (meta[13,]$end - today) |>
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_smashers.html)
+Check eligibility [here](eligibility_calgary.html)
 
 Eligibility criteria:
 
