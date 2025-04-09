@@ -11,7 +11,7 @@ name: Quarto Render and Publish
 
 jobs:
   render_publish:
-    uses: biplabendu/gha-workflows/.github/workflows/render-publish-ghpages.yml@dev
+    uses: biplabendu/gha-workflows/.github/workflows/render-publish-ghpages.yml@main
     with:
       system_dependencies: |
         libx11-dev \
