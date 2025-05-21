@@ -35,22 +35,22 @@ Last updated on `r dttm`.
 
 ___
 
-# Starlets: SFVRD
+# HARD: LADD
 
 ```{r}
-days2go <- (meta[11,]$end - today) |> 
+days2go <- (meta[1,]$end - today) |> 
   as.numeric("days")
 ```
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_sfvrd.html)
+Check eligibility [here](eligibility_LADD.html)
 
 Eligibility criteria:
 
 ```{r}
 meta |> 
-  slice(11) |> 
+  slice(1) |> 
   select(
     - game
   ) |> 
@@ -65,22 +65,22 @@ meta |>
 
 ___
 
-# Starlets: Tucson
+# Starlets: Beaters
 
 ```{r}
-days2go <- (meta[14,]$end - today) |> 
+days2go <- (meta[2,]$end - today) |> 
   as.numeric("days")
 ```
 
 > Eligibility closes in `r days2go` days.
 
-Check eligibility [here](eligibility_tucson.html)
+Check eligibility [here](eligibility_beaters.html)
 
 Eligibility criteria:
 
 ```{r}
 meta |> 
-  slice(14) |> 
+  slice(2) |> 
   select(
     - game
   ) |> 
@@ -95,33 +95,3 @@ meta |>
 
 ___
 
-
-# Starlets: Calgary
-
-```{r}
-days2go <- (meta[13,]$end - today) |> 
-  as.numeric("days")
-```
-
-> Eligibility closes in `r days2go` days.
-
-Check eligibility [here](eligibility_calgary.html)
-
-Eligibility criteria:
-
-```{r}
-meta |> 
-  slice(13) |> 
-  select(
-    - game
-  ) |> 
-  kableExtra::kable(
-    table.attr = 'data-quarto-disable-processing="true"'
-  ) %>% 
-  kableExtra::kable_styling(
-    bootstrap_options = c("basic", "hover"), 
-    full_width = FALSE
-  )
-```
-
-___

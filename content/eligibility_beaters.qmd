@@ -1,5 +1,5 @@
 ---
-title: "Starlets Eligibility Tracker (Calgary)"
+title: "Starlets Eligibility Tracker (Beaters)"
 reference-location: margin
 citation-location: margin
 editor_options: 
@@ -17,7 +17,7 @@ dttm <- Sys.time() |>
 today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
 
 # Set which game
-which_game = "Calgary"
+which_game = "Beaters"
 ```
 
 
