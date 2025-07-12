@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistics for Roller Derby",
+    "objectID": "eligibility_tracker.html",
+    "href": "eligibility_tracker.html",
+    "title": "Eligibility Tracker",
     "section": "",
-    "text": "Last updated on 2025-07-10.\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nThe Eligibility tab monitors eligibility of players for an upcoming game.\nFor questions, please contact us via email."
+    "text": "Last updated on 2025-07-11 23:56 MST.\n\n\nStarlets: Rocky Mountain\n\nEligibility closes in 29 days.\n\nCheck eligibility here\nEligibility criteria:\n\n\n\n\n\nstart\nend\npractice_credit_req\nvolunteer_month\nvolunteer_hr_req\n\n\n\n\n2025-06-29\n2025-08-09\n10\nJuly\n8"
   },
   {
     "objectID": "statsbook/blocker1.html",
@@ -14,18 +14,18 @@
     "text": "Blocker statistics over the course of the game\n\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams in which a blocker/pivot was involved in, either on track or in the box.\nn_points_against_per_jam: number of points scored against a player per jam. Smaller numbers are better.\n\nn_points_against_per_jam = number of points scored in all jams that a blocker/pivot is involved in (either on track or in the box) divided by n_jams\n\nprop_box_per_jam: proportion of jams in which a blocker/pivot sat in the box. Smaller numbers are better.\nprop_jams_smallwall: proportion of jams in which a blocker/pivot was part of a smaller wall (less than 4). Smaller numbers are better.\n\n\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
   },
   {
-    "objectID": "statsbook/jammer1.html",
-    "href": "statsbook/jammer1.html",
-    "title": "Jammer Statistics",
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
     "section": "",
-    "text": "Jammer statistics over the course of the game\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams started by a jammer, either on track or in the box.\nn_points_per_jam: number of points scored by the player per jam. Bigger numbers are better.\nprop_leads: proportion of jams in which the jammer obtained lead. Bigger numbers are better.\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
+    "text": "Biplabendu (Billu) Das\nbiplabendu.das@gmail.com\nhttps://biplabendu.github.io/homepage/"
   },
   {
     "objectID": "eligibility_RockyMountain.html",
     "href": "eligibility_RockyMountain.html",
     "title": "Starlets Eligibility Tracker (Rocky Mountain)",
     "section": "",
-    "text": "Last updated on 2025-07-10."
+    "text": "Last updated on 2025-07-11."
   },
   {
     "objectID": "eligibility_RockyMountain.html#plot",
@@ -35,11 +35,11 @@
     "text": "Plot"
   },
   {
-    "objectID": "eligibility_tracker.html",
-    "href": "eligibility_tracker.html",
-    "title": "Eligibility Tracker",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistics for Roller Derby",
     "section": "",
-    "text": "Last updated on 2025-07-10 23:56 MST.\n\n\nStarlets: Rocky Mountain\n\nEligibility closes in 30 days.\n\nCheck eligibility here\nEligibility criteria:\n\n\n\n\n\nstart\nend\npractice_credit_req\nvolunteer_month\nvolunteer_hr_req\n\n\n\n\n2025-06-29\n2025-08-09\n10\nJuly\n8"
+    "text": "Last updated on 2025-07-11.\n\nThis website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.\nThe Eligibility tab monitors eligibility of players for an upcoming game.\nFor questions, please contact us via email."
   },
   {
     "objectID": "statsbook/scoreboard1.html",
@@ -49,10 +49,10 @@
     "text": "Team scores over the course of the game\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
+    "objectID": "statsbook/jammer1.html",
+    "href": "statsbook/jammer1.html",
+    "title": "Jammer Statistics",
     "section": "",
-    "text": "Biplabendu (Billu) Das\nbiplabendu.das@gmail.com\nhttps://biplabendu.github.io/homepage/"
+    "text": "Jammer statistics over the course of the game\n\n\n\n\n\n\nDefinitions\n\n\n\n\nn_jams: number of jams started by a jammer, either on track or in the box.\nn_points_per_jam: number of points scored by the player per jam. Bigger numbers are better.\nprop_leads: proportion of jams in which the jammer obtained lead. Bigger numbers are better.\n\n\n\n\n\n# Showing statists for Game 1 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MontereyBayRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 2 #\n\nTeam 1: TreasureValleyRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 3 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WineTownRollers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 4 #\n\nTeam 1: BadNewsBeaters \nTeam 2: DarkSkyStarlets\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 5 #\n\nTeam 1: BadNewsBeaters \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 6 #\n\nTeam 1: ElevatedRollerDerby \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 7 #\n\nTeam 1: ArizonaRising \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 8 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WhiskeyRowllers\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 9 #\n\nTeam 1: SlamAndreas \nTeam 2: HighAltitudeRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 10 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: Cuttlefish\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 11 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: InlandEmpireRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 12 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: WestSoundRollerDerby\n\n\n\n\n\n\n\n\n\n# Showing statists for Game 13 #\n\nTeam 1: HighAltitudeRollerDerby \nTeam 2: MidnightTerror"
   }
 ]
