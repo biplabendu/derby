@@ -25,12 +25,12 @@ website:
       - text: "Eligibility"
         file: eligibility.qmd
       ###-###-###-###-###-###-###-###-###-###-###-###-
-      - text: "Scoreboard"
-        file: statsbook/scoreboard1.qmd
-      - text: "Jammer Stats"
-        file: statsbook/jammer1.qmd
-      - text: "Blocker Stats"
-        file: statsbook/blocker1.qmd
+      # - text: "Scoreboard"
+      #   file: statsbook/scoreboard1.qmd
+      # - text: "Jammer Stats"
+      #   file: statsbook/jammer1.qmd
+      # - text: "Blocker Stats"
+      #   file: statsbook/blocker1.qmd
       - text: "Contact"
         file: contact.qmd
 
