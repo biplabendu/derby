@@ -17,6 +17,6 @@ Last updated on `r today`.
 
 This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.
 
-The [Eligibility](eligibility_tracker.html) tab monitors eligibility of players for an upcoming game.
+The [Eligibility](eligibility.html) tab monitors eligibility of players for an upcoming game.
 
 For questions, please contact us [via email](contact.qmd).
