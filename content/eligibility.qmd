@@ -1,0 +1,212 @@
+---
+title: "Starlets Eligibility Tracker"
+reference-location: margin
+citation-location: margin
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r params}
+library(dplyr)
+source(here::here("./functions/utils.R"))
+source(here::here("./R/utils-eligibility.R"))
+
+today <- Sys.Date() |> pretty_datetime()
+```
+
+
+Last updated on `r today`.
+
+```{r}
+# Load google sheets ----------------------------------------------------------
+# links <- c(
+#   practice = "https://docs.google.com/spreadsheets/d/1mJuAuvHl95e39-0kdC1c_JkiB7lsaWw0O8UnnQobMN0",
+#   volunteer = "https://docs.google.com/spreadsheets/d/149v3bE1N_0GNkyiTo4eFn-DCsJ1xDUolFQ9V3komxRM"
+# )
+
+links <- c(
+  practice = "https://docs.google.com/spreadsheets/d/e/2PACX-1vThN94KzaEV4gk9lICkn7HnOJTAPtTDQuDypir_pxXMzwi7oGxgBbM21gVx6vjHoz-KZV2Jl0kHIhvm/pub?gid=1819256109&single=true&output=csv",
+  volunteer = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRKuh5MOL8VJi3VD_WtbbLVyH8O9rbjhkKYWET8IlUib_NBhSUW_jRVA7bZR18K8cSgmPcADy2ESaAa/pub?gid=845902717&single=true&output=csv",
+  eligibility_periods = "https://docs.google.com/spreadsheets/d/e/2PACX-1vThN94KzaEV4gk9lICkn7HnOJTAPtTDQuDypir_pxXMzwi7oGxgBbM21gVx6vjHoz-KZV2Jl0kHIhvm/pub?gid=1566653249&single=true&output=csv"
+)
+
+```
+
+
+```{r}
+
+# Load data
+
+dat <-  purrr::map(
+  links,
+  # sheets,
+  # ~ googlesheets4::read_sheet(
+  #   .x,
+  #   sheet = .y
+  # ) |> 
+  ~ read.csv(
+    .x
+  ) |> 
+    janitor::clean_names()
+  ) |> 
+  setNames(
+    names(links)
+  )
+  
+meta <- dat[["eligibility_periods"]] |>
+  mutate(
+    across(
+      c(start, end),
+      ~ lubridate::ymd(.x)
+    )
+  )
+
+# # DEV ----
+# meta <- bind_rows(
+#   meta,
+#   meta |> mutate(game = "Another game", start = start + 10, end = end + 10)
+# )
+```
+
+::: {.callout-note collapse=true}
+
+# When are the eligibility periods ?
+
+```{r}
+meta |> 
+  kableExtra::kable()
+```
+
+:::
+
+```{r}
+practice = load_transformed_practice_data(
+  data = dat[["practice"]]
+)
+```
+
+::: {.callout-warning collapse=true}
+
+## Errors that needs fix
+
+```{r}
+
+foo <- practice|> 
+  filter(
+    timestamp >= min(meta$start, na.rm = TRUE)
+  ) |> 
+  filter(
+    error
+  ) |> 
+  select(
+    timestamp,
+    practice_date = p_date
+  ) |> 
+  left_join(
+    dat[["practice"]] |> 
+      select(
+        1:4, 6
+      ) |> 
+      mutate(
+        row_number = 1:n(),
+        row_number = row_number + 1
+      ) |> 
+      mutate(
+        timestamp = lubridate::mdy_hms(timestamp) |>
+          lubridate::as_date(),
+        practice_date = lubridate::mdy(practice_date)
+      ),
+    join_by(
+      timestamp,
+      practice_date
+    )
+  ) |> 
+  relocate(
+    row_number,
+    .before = 1
+  )
+
+if (nrow(foo) > 0) {
+  foo |> 
+    kableExtra::kable()
+} else {
+  cat("None found. Good job people!")
+}
+```
+
+If errors are found, rows with error will be removed
+prior to assessing completion of practice and volunteer hours.
+
+:::
+
+
+# Practice Credit
+
+```{r}
+games  <- meta$game
+
+practice_tbls <- purrr::map(
+  games,
+  ~ compute_eligibility_status(
+    meta,
+    practice,
+    .x
+  )
+)
+
+practice_out <- purrr::map_dfr(
+  practice_tbls,
+  ~ pretty_eligibility_tbl(.x)
+)
+
+```
+
+
+```{r}
+practice_out |> 
+  reactable::reactable(
+    groupBy = c("game", "status"),
+    searchable = TRUE,
+    filterable = TRUE,
+    sortable = TRUE,
+    resizable = TRUE,
+    columns = list(
+      game = reactable::colDef(minWidth = 170),
+      status = reactable::colDef(minWidth = 120),
+      player = reactable::colDef(minWidth = 100)
+    )
+  )
+```
+
+# Volunteer Hours
+
+```{r}
+volunteer <- load_transformed_volunteer_data(
+  dat[["volunteer"]]
+)
+
+volunteer_out <- purrr::map_dfr(
+  games,
+  ~ compute_volunteer_status(
+    meta,
+    volunteer,
+    .x
+  )
+)
+
+volunteer_out |>
+  reactable::reactable(
+    groupBy = c("game", "status"),
+    searchable = TRUE,
+    filterable = TRUE,
+    sortable = TRUE,
+    resizable = TRUE,
+    columns = list(
+      game = reactable::colDef(minWidth = 170),
+      status = reactable::colDef(minWidth = 120),
+      player = reactable::colDef(minWidth = 100)
+    )
+  )
+
+```
+
