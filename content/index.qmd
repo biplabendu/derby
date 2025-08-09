@@ -2,19 +2,6 @@
 title: "Statistics for Roller Derby"
 ---
 
-```{r}
-dttm <- Sys.time() |> 
-  .POSIXct("MST") |> 
-  format("%Y-%m-%d %H:%M %Z")
-
-today <- Sys.time() |> .POSIXct("MST") |> lubridate::as_date()
-```
-
-
-Last updated on `r today`.
-
----
-
 This website contain statistics for a roller derby game, obtained from the WFTDA Statsbook.
 
 The [Eligibility](eligibility.html) tab monitors eligibility of players for an upcoming game.

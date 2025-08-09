@@ -391,9 +391,9 @@ compute_volunteer_status <- function(meta, volunteer, game) {
 # General -----------------------------------------------------------------
 
 pretty_datetime <- function(datetime,
-                            timezone = "America/Los_Angeles") {
+                            timezone = "America/Phoenix") {
   datetime |> 
     lubridate::as_datetime() |> 
-    format("%a, %d %b, %Y | %H:%M %p", tz = timezone)
+    format("%a, %d %b, %Y | %I:%M %p", tz = timezone)
 }
 

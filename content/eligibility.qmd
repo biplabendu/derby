@@ -11,11 +11,11 @@ library(dplyr)
 source(here::here("./functions/utils.R"))
 source(here::here("./R/utils-eligibility.R"))
 
-today <- Sys.Date() |> pretty_datetime()
+today <- Sys.time() |> pretty_datetime()
 ```
 
 
-Last updated on `r today`.
+Last updated on `r today` AZ time.
 
 ```{r}
 # Load google sheets ----------------------------------------------------------
