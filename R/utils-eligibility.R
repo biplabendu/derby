@@ -397,3 +397,45 @@ pretty_datetime <- function(datetime,
     format("%a, %d %b, %Y | %I:%M %p", tz = timezone)
 }
 
+
+# Reactable ---------------------------------------------------------------
+
+grouped_reactable <- function(data, group_var, id = "1") {
+  id <- paste0("expandable-table-", id)
+  
+  htmltools::browsable(
+    htmltools::tagList(
+      expand_toggle_button(id),
+      # download_csv_button(id),
+      
+      reactable::reactable(
+        data,
+        groupBy = group_var,
+        searchable = TRUE,
+        filterable = TRUE,
+        sortable = TRUE,
+        resizable = TRUE,
+        columns = list(
+          game = reactable::colDef(minWidth = 170, sticky = "left"),
+          status = reactable::colDef(minWidth = 120, sticky = "left"),
+          player = reactable::colDef(minWidth = 100, sticky = "left")
+        ),
+        elementId = id
+      )
+    )
+  )
+}
+
+expand_toggle_button <- function(table_id, label = "Expand/collapse all") {
+  htmltools::tags$button(
+    label,
+    onclick = sprintf("Reactable.toggleAllRowsExpanded('%s')", table_id)
+  )
+}
+
+download_csv_button <- function(table_id, label = "Download as CSV") {
+  htmltools::tags$button(
+    label,
+    onclick = sprintf("Reactable.downloadDataCSV('%s')", table_id)
+  )
+}

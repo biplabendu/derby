@@ -164,17 +164,9 @@ practice_out <- purrr::map_dfr(
 
 ```{r}
 practice_out |> 
-  reactable::reactable(
-    groupBy = c("game", "status"),
-    searchable = TRUE,
-    filterable = TRUE,
-    sortable = TRUE,
-    resizable = TRUE,
-    columns = list(
-      game = reactable::colDef(minWidth = 170),
-      status = reactable::colDef(minWidth = 120),
-      player = reactable::colDef(minWidth = 100)
-    )
+  grouped_reactable(
+    group_var = c("game", "status"),
+    id = 1
   )
 ```
 
@@ -195,18 +187,9 @@ volunteer_out <- purrr::map_dfr(
 )
 
 volunteer_out |>
-  reactable::reactable(
-    groupBy = c("game", "status"),
-    searchable = TRUE,
-    filterable = TRUE,
-    sortable = TRUE,
-    resizable = TRUE,
-    columns = list(
-      game = reactable::colDef(minWidth = 170),
-      status = reactable::colDef(minWidth = 120),
-      player = reactable::colDef(minWidth = 100)
-    )
+  grouped_reactable(
+    group_var = c("game", "status"),
+    id = 2
   )
-
 ```
 
