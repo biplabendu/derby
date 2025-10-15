@@ -1,0 +1,202 @@
+---
+title: "Exploring WFTDA Stats"
+reference-location: margin
+citation-location: margin
+editor_options: 
+  chunk_output_type: console
+format: 
+  html: 
+    toc: false
+---
+
+```{r params}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+
+for (i in list.files(here::here("R"), full.names = TRUE)) source(i)
+
+today <- Sys.time() |> pretty_datetime()
+
+library(reactable)
+options(reactable.theme = reactableTheme(
+  color = "hsl(233, 9%, 87%)",
+  backgroundColor = "hsl(233, 9%, 19%)",
+  borderColor = "hsl(233, 9%, 22%)",
+  stripedColor = "hsl(233, 12%, 22%)",
+  highlightColor = "hsl(233, 12%, 24%)",
+  inputStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  selectStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  pageButtonHoverStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  pageButtonActiveStyle = list(backgroundColor = "hsl(233, 9%, 28%)")
+))
+```
+
+
+Last updated on `r today` AZ time.
+
+```{r}
+tbl <- readRDS(
+  here::here(
+    "data/wftda/all_games_data-v1-15Oct25.RDS"
+  )
+)
+```
+
+
+::: {.callout-note collapse=true}
+# Transformed data
+
+```{r}
+tbl |> 
+  glimpse()
+```
+
+:::
+
+# Final scores
+
+```{r}
+summ_tbl <- tbl |> 
+  group_by(filename) |> 
+  reframe(
+    date = date[1],
+    league1 = stringr::str_split(team1, "; ")[[1]][1],
+    league2 = stringr::str_split(team2, "; ")[[1]][1],
+    # team1 = team1[1],
+    # team2 = team2[1],
+    final1 = max(gametotal1),
+    final2 = max(gametotal2)
+    # n_team1 = n_team1[1],
+    # n_team2 = n_team2[1],
+    # n_jammers1 = length(unique(jammer1)),
+    # n_jammers2 = length(unique(jammer2))
+  ) |> 
+  select(- filename) |> 
+  mutate(
+    winner = case_when(
+      final1 > final2 ~ "home",
+      final2 > final1 ~ "visitor",
+      .default = "tie"
+    )
+  ) |>
+  select(
+    date,
+    home = league1,
+    score_home = final1,
+    score_visitor = final2,
+    visitor = league2,
+    winner
+  ) |> 
+  mutate(
+    across(
+      c(home, visitor),
+      ~ janitor::make_clean_names(
+        .x, 
+        case = "title",
+        allow_dupes = TRUE
+      )
+    )
+  )
+
+summ_tbl |> 
+  select(
+    - winner
+  ) |> 
+  reactable::reactable(
+    searchable = TRUE,
+    sortable = TRUE,
+    resizable = TRUE,
+    highlight = TRUE,
+    columns = list(
+      home = reactable::colDef(
+        filterable = TRUE,
+        align = "right",
+        minWidth = 200
+      ),
+      visitor = reactable::colDef(
+        filterable = TRUE,
+        minWidth = 200
+      ),
+      date = reactable::colDef(
+        filterable = TRUE,
+        minWidth = 80
+      ),
+      score_home = reactable::colDef(
+        name = "",
+        align = "center"
+      ),
+      score_visitor = reactable::colDef(
+        name = "",
+        align = "center"
+      )
+    ),
+    bordered = TRUE
+  )
+```
+
+# Leagues
+
+```{r}
+c(
+  summ_tbl$home,
+  summ_tbl$visitor
+) |> 
+  sort() |> 
+  as_tibble() |> 
+  count(
+    value
+  ) |> 
+  arrange(
+    desc(n)
+  ) |> 
+  reactable::reactable(
+    searchable = TRUE,
+    columns = list(
+      value = colDef(
+        name = "Unique League Name",
+        align = "right"
+      ),
+      n = colDef(
+        name = "No. of games",
+        align = "left"
+      )
+    ),
+    bordered = TRUE
+  )
+```
+
+
+::: {.callout-note collapse=true}
+# Score-Diff: Home vs. Visitor
+
+```{r fig.width=8, fig.height=6}
+summ_tbl |> 
+  mutate(
+    abs_diff = abs(score_home - score_visitor)
+  ) |> 
+  select(
+    winner,
+    abs_diff
+  ) |> 
+  ggplot(
+    aes(
+      x = winner,
+      y = abs_diff,
+      fill = winner
+    )
+  ) +
+  geom_violin() +
+  geom_boxplot(
+    fill = NA,
+    width = 0.3
+  ) +
+  theme_minimal(20) +
+  coord_flip() +
+  theme(
+    legend.position = "top"
+  )
+```
+
+
+:::

@@ -400,7 +400,7 @@ pretty_datetime <- function(datetime,
 
 # Reactable ---------------------------------------------------------------
 
-grouped_reactable <- function(data, group_var, id = "1") {
+grouped_reactable <- function(data, group_var, id = "1", ...) {
   id <- paste0("expandable-table-", id)
   
   htmltools::browsable(
@@ -415,12 +415,8 @@ grouped_reactable <- function(data, group_var, id = "1") {
         filterable = TRUE,
         sortable = TRUE,
         resizable = TRUE,
-        columns = list(
-          game = reactable::colDef(minWidth = 170, sticky = "left"),
-          status = reactable::colDef(minWidth = 120, sticky = "left"),
-          player = reactable::colDef(minWidth = 100, sticky = "left")
-        ),
-        elementId = id
+        elementId = id,
+        ...
       )
     )
   )
