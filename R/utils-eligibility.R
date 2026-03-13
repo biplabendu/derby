@@ -212,8 +212,7 @@ load_transformed_practice_data <- function(data, meta) {
       )
     ) |> 
     mutate(
-      timestamp = lubridate::mdy_hms(timestamp) |>
-        lubridate::as_date(),
+      timestamp = lubridate::mdy_hms(timestamp),
       p_date = lubridate::mdy(p_date),
       p_type = tolower(p_type)
     ) |> 
